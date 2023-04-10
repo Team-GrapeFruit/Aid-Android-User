@@ -1,3 +1,20 @@
 <resources>
     <string name="app_name">Aid-Android-User</string>
+
+    <string name="seat_selection">자리선택</string>
+    <string name="use">사용중</string>
+    <string name="empty">빈자리</string>
+    <string name="table1"><b>1번</b>\n6인용</string>
+    <string name="table2"><b>2번</b>\n1인용</string>
+    <string name="table3"><b>3번</b>\n1인용</string>
+    <string name="table4"><b>4번</b>\n1인용</string>
+    <string name="table5"><b>5번</b>\n1인용</string>
+    <string name="table6"><b>6번</b>\n4인용</string>
+    <string name="table7"><b>7번</b>\n6인용</string>
+    <string name="table8"><b>8번</b>\n1인용</string>
+    <string name="table9"><b>9번</b>\n1인용</string>
+    <string name="table10"><b>10번</b>\n1인용</string>
+    <string name="table11"><b>11번</b>\n1인용</string>
+    <string name="table12"><b>12번</b>\n4인용</string>
+
 </resources>
