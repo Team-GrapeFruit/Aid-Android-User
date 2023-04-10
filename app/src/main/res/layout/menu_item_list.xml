@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="103dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <!-- 메뉴 이미지 -->
+    <ImageView
+        android:id="@+id/menu_image"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintStart_toStartOf="@id/menu_image_guideline_start"
+        app:layout_constraintEnd_toEndOf="@id/menu_image_guideline_end"
+        app:layout_constraintTop_toTopOf="@id/menu_image_guideline_top"
+        app:layout_constraintBottom_toBottomOf="@id/menu_image_guideline_bottom"
+        android:background="@drawable/menu_image"/>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/menu_image_guideline_top"
+        android:layout_width="match_parent"
+        android:layout_height="0.1dp"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.12"/>
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/menu_image_guideline_bottom"
+        android:layout_width="match_parent"
+        android:layout_height="0.1dp"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.889"/>
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/menu_image_guideline_start"
+        android:layout_width="match_parent"
+        android:layout_height="0.1dp"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.045"/>
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/menu_image_guideline_end"
+        android:layout_width="match_parent"
+        android:layout_height="0.1dp"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.267"/>
+
+    <!-- soldout 이미지 -->
+    <ImageView
+        android:id="@+id/sold_out_image"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintStart_toStartOf="@id/sold_out_image_guideline_start"
+        app:layout_constraintEnd_toEndOf="@id/sold_out_image_guideline_end"
+        app:layout_constraintTop_toTopOf="@id/sold_out_image_guideline_top"
+        app:layout_constraintBottom_toBottomOf="@id/sold_out_image_guideline_bottom"
+        android:background="@drawable/sold_out_image"/>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/sold_out_image_guideline_top"
+        android:layout_width="match_parent"
+        android:layout_height="0.1dp"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.12"/>
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/sold_out_image_guideline_bottom"
+        android:layout_width="match_parent"
+        android:layout_height="0.1dp"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.889"/>
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/sold_out_image_guideline_start"
+        android:layout_width="match_parent"
+        android:layout_height="0.1dp"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.045"/>
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/sold_out_image_guideline_end"
+        android:layout_width="match_parent"
+        android:layout_height="0.1dp"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.267"/>
+
+    <!-- soldout 텍스트 -->
+    <TextView
+        android:id="@+id/sold_out_text"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintStart_toStartOf="@id/sold_out_text_guideline_start"
+        app:layout_constraintEnd_toEndOf="@id/sold_out_text_guideline_end"
+        app:layout_constraintTop_toTopOf="@id/sold_out_text_guideline_top"
+        app:layout_constraintBottom_toBottomOf="@id/sold_out_text_guideline_bottom"
+        android:text="SOLD OUT"
+        android:textSize="10sp"
+        android:textColor="@color/black"
+        android:gravity="center"/>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/sold_out_text_guideline_top"
+        android:layout_width="match_parent"
+        android:layout_height="0.1dp"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.42"/>
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/sold_out_text_guideline_bottom"
+        android:layout_width="match_parent"
+        android:layout_height="0.1dp"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.588"/>
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/sold_out_text_guideline_start"
+        android:layout_width="match_parent"
+        android:layout_height="0.1dp"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.08"/>
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/sold_out_text_guideline_end"
+        android:layout_width="match_parent"
+        android:layout_height="0.1dp"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.23"/>
+
+    <!-- 메뉴 이름 -->
+    <TextView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintStart_toStartOf="@id/menu_name_guideline_start"
+        app:layout_constraintEnd_toEndOf="@id/menu_name_guideline_end"
+        app:layout_constraintTop_toTopOf="@id/menu_name_guideline_top"
+        app:layout_constraintBottom_toBottomOf="@id/menu_name_guideline_bottom"
+        android:text="엽기떡볶이"
+        android:textColor="@color/black"
+        android:textSize="14sp"/>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/menu_name_guideline_top"
+        android:layout_width="match_parent"
+        android:layout_height="0.1dp"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.169"/>
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/menu_name_guideline_bottom"
+        android:layout_width="match_parent"
+        android:layout_height="0.1dp"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.42"/>
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/menu_name_guideline_start"
+        android:layout_width="match_parent"
+        android:layout_height="0.1dp"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.29"/>
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/menu_name_guideline_end"
+        android:layout_width="match_parent"
+        android:layout_height="0.1dp"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.48"/>
+
+    <!-- 가격 -->
+    <TextView
+        android:id="@+id/price"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintStart_toStartOf="@id/price_guideline_start"
+        app:layout_constraintEnd_toEndOf="@id/price_guideline_end"
+        app:layout_constraintTop_toTopOf="@id/price_guideline_top"
+        app:layout_constraintBottom_toBottomOf="@id/price_guideline_bottom"
+        android:text="16,000원"
+        android:textSize="12sp"
+        android:textColor="@color/black"/>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/price_guideline_top"
+        android:layout_width="match_parent"
+        android:layout_height="0.1dp"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.64"/>
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/price_guideline_bottom"
+        android:layout_width="match_parent"
+        android:layout_height="0.1dp"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.838"/>
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/price_guideline_start"
+        android:layout_width="match_parent"
+        android:layout_height="0.1dp"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.29"/>
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/price_guideline_end"
+        android:layout_width="match_parent"
+        android:layout_height="0.1dp"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.433"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
