@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/qr_top_top"
+        android:orientation="horizontal"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintGuide_percent="0.301"/>
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/qr_top_bottom"
+        android:orientation="horizontal"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintGuide_percent="0.308"/>
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/qr_bottom_bottom"
+        android:orientation="horizontal"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintGuide_percent="0.506"/>
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/qr_bottom_top"
+        android:orientation="horizontal"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintGuide_percent="0.499"/>
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/qr_check_top"
+        android:orientation="horizontal"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintGuide_percent="0.541"/>
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/qr_check_bottom"
+        android:orientation="horizontal"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintGuide_percent="0.577"/>
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/qr_left_sero_left"
+        android:orientation="vertical"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintGuide_percent="0.315"/>
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/qr_left_sero_right"
+        android:orientation="vertical"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintGuide_percent="0.329"/>
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/qr_left_garo_right"
+        android:orientation="vertical"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintGuide_percent="0.437"/>
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/qr_right_garo_left"
+        android:orientation="vertical"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintGuide_percent="0.565"/>
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/qr_right_sero_left"
+        android:orientation="vertical"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintGuide_percent="0.672"/>
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/qr_right_sero_right"
+        android:orientation="vertical"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintGuide_percent="0.686"/>
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/qr_check_left"
+        android:orientation="vertical"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintGuide_percent="0.387"/>
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/qr_check_right"
+        android:orientation="vertical"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintGuide_percent="0.612"/>
+
+    <View
+        android:id="@+id/qr_right_top_sero"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@drawable/qrcode_scan_round"
+        app:layout_constraintStart_toStartOf="@id/qr_right_sero_left"
+        app:layout_constraintEnd_toEndOf="@id/qr_right_sero_right"
+        app:layout_constraintTop_toTopOf="@id/qr_top_top"
+        app:layout_constraintBottom_toBottomOf="@id/qr_top_bottom"/>
+
+    <View
+        android:id="@+id/qr_right_top_garo"
+        android:layout_width="50dp"
+        android:layout_height="5dp"
+        android:layout_marginEnd="130dp"
+        android:layout_marginTop="220dp"
+        android:background="@drawable/qrcode_scan_round"
+        app:layout_constraintStart_toStartOf=""
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <View
+        android:id="@+id/qr_left_top_garo"
+        android:layout_width="50dp"
+        android:layout_height="5dp"
+        android:layout_marginStart="130dp"
+        android:layout_marginTop="220dp"
+        android:background="@drawable/qrcode_scan_round"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <View
+        android:id="@+id/qr_left_bottom_sero"
+        android:layout_width="5dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="130dp"
+        android:layout_marginTop="320dp"
+        android:background="@drawable/qrcode_scan_round"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <View
+        android:id="@+id/qr_left_bottom_garo"
+        android:layout_width="50dp"
+        android:layout_height="5dp"
+        android:layout_marginStart="130dp"
+        android:layout_marginTop="365dp"
+        android:background="@drawable/qrcode_scan_round"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <View
+        android:id="@+id/qr_left_top_sero"
+        android:layout_width="5dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="130dp"
+        android:layout_marginTop="220dp"
+        android:background="@drawable/qrcode_scan_round"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <View
+        android:id="@+id/qr_right_bottom_sero"
+        android:layout_width="5dp"
+        android:layout_height="50dp"
+        android:layout_marginEnd="130dp"
+        android:layout_marginTop="320dp"
+        android:background="@drawable/qrcode_scan_round"
+        app:layout_constraintStart_toStartOf=""
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <View
+        android:id="@+id/qr_right_bottom_garo"
+        android:layout_width="50dp"
+        android:layout_height="5dp"
+        android:layout_marginEnd="130dp"
+        android:layout_marginTop="365dp"
+        android:background="@drawable/qrcode_scan_round"
+        app:layout_constraintStart_toStartOf=""
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="QR 체크하기"
+        android:textColor="@color/black"
+        android:textSize="18dp"
+        tools:layout_editor_absoluteX="159dp"
+        tools:layout_editor_absoluteY="396dp" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
