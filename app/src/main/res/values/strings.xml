@@ -1,5 +1,7 @@
 <resources>
     <string name="app_name">Aid-Android-User</string>
+    <string name="typing_question">질문을 입력하세요</string>
+    <string name="aid">에이드</string>
 
     <string name="seat_selection">자리선택</string>
     <string name="use">사용중</string>
