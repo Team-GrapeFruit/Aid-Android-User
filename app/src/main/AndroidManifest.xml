@@ -12,6 +12,7 @@
         android:theme="@style/Theme.AidAndroidUser"
         tools:targetApi="31">
         <activity
+            android:name=".view.seatselection.SeatSelectionActivity"
             android:name=".view.menupage.MenuPage"
             android:exported="false" />
         <activity
@@ -23,7 +24,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
