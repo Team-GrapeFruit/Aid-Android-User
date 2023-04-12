@@ -14,7 +14,17 @@
         <activity
             android:name=".view.chat.Chat"
             android:exported="true"
-            android:windowSoftInputMode="adjustResize">
+            android:windowSoftInputMode="adjustResize"/>
+
+        <activity
+            android:name=".view.seatselection.SeatSelectionActivity"
+            android:name=".view.menupage.MenuPage"
+            android:exported="false" />
+            
+        <activity
+            android:name=".MainActivity"
+            android:exported="true">
+            
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -25,6 +35,9 @@
             android:name=".MainActivity"
             android:exported="true">
         </activity>
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
     </application>
 
 </manifest>
