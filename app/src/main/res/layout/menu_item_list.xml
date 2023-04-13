@@ -152,6 +152,36 @@
         android:orientation="vertical"
         app:layout_constraintGuide_percent="0.48"/>
 
+    <!-- 메뉴 설명 -->
+    <TextView
+        android:id="@+id/menu_description"
+        android:layout_width="wrap_content"
+        android:layout_height="36dp"
+        app:layout_constraintStart_toStartOf="@id/menu_description_guideline_start"
+        app:layout_constraintTop_toTopOf="@id/menu_description_guideline_top"
+        app:layout_constraintBottom_toBottomOf="@id/menu_description_guideline_bottom"
+        android:textSize="12sp"
+        android:text="메뉴 설명입니다."/>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/menu_description_guideline_top"
+        android:layout_width="match_parent"
+        android:layout_height="0.1dp"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.4"/>
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/menu_description_guideline_bottom"
+        android:layout_width="match_parent"
+        android:layout_height="0.1dp"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.77"/>
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/menu_description_guideline_start"
+        android:layout_width="match_parent"
+        android:layout_height="0.1dp"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.29"/>
+
     <!-- 가격 -->
     <TextView
         android:id="@+id/price"
@@ -170,13 +200,13 @@
         android:layout_width="match_parent"
         android:layout_height="0.1dp"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.64"/>
+        app:layout_constraintGuide_percent="0.74"/>
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/price_guideline_bottom"
         android:layout_width="match_parent"
         android:layout_height="0.1dp"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.838"/>
+        app:layout_constraintGuide_percent="0.938"/>
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/price_guideline_start"
         android:layout_width="match_parent"
