@@ -14,7 +14,7 @@ class QrScanActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         val intent: Intent = Intent(this@QrScanActivity,ShopSelectActivity::class.java)
-        intent.putExtra("storeId",1)
+        intent.putExtra("storeId","2")
         startActivity(intent)
     }
 }
