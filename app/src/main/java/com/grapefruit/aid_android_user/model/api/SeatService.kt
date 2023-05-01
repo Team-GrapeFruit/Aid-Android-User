@@ -1,8 +1,7 @@
-package com.grapefruit.aid_android_user.feature_seat.data.api
+package com.grapefruit.aid_android_user.model.api
 
-import com.grapefruit.aid_android_user.feature_seat.data.dto.SeatDTO
+import com.grapefruit.aid_android_user.model.dto.SeatDTO
 import retrofit2.Call
-import retrofit2.Response
 import retrofit2.http.GET
 import retrofit2.http.PATCH
 import retrofit2.http.Path

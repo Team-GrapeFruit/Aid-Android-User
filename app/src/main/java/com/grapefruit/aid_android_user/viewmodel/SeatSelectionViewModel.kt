@@ -1,22 +1,32 @@
-package com.grapefruit.aid_android_user.feature_seat.presentation.model
+package com.grapefruit.aid_android_user.viewmodel
 
 import android.util.Log
 import android.widget.Toast
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import com.grapefruit.aid_android_user.feature_seat.data.dto.SeatDTO
-import com.grapefruit.aid_android_user.feature_seat.presentation.SeatSelectionActivity
-import com.grapefruit.aid_android_user.feature_seat.presentation.vm.SeatSelectionViewModel
+import com.grapefruit.aid_android_user.view.SeatSelectionActivity
+import com.grapefruit.aid_android_user.model.dto.SeatDTO
+import com.grapefruit.aid_android_user.model.retrofit.RetrofitBuilder
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
-import kotlin.properties.Delegates
 
-class CommunicationWork {
+class SeatSelectionViewModel: ViewModel() {
+
+    private val _seatListResponse = MutableLiveData<List<SeatDTO>>()
+    val seatListResponse: LiveData<List<SeatDTO>> get() = _seatListResponse
+
+    fun seatListResponse(seatList: List<SeatDTO>){
+        _seatListResponse.value = seatList
+    }
+
     private val seatService = RetrofitBuilder.seatService
 
     fun seatList(storeId: Long, activity: SeatSelectionActivity) {
         seatService.seatList(storeId)
-            .enqueue(object : Callback<List<SeatDTO>>{
+            .enqueue(object : Callback<List<SeatDTO>> {
                 override fun onResponse(
                     call: Call<List<SeatDTO>>,
                     response: Response<List<SeatDTO>>
@@ -40,7 +50,7 @@ class CommunicationWork {
 
     fun allow(seatId: Long, activity: SeatSelectionActivity){
         seatService.allow(seatId)
-            .enqueue(object : Callback<Unit>{
+            .enqueue(object : Callback<Unit> {
                 override fun onResponse(call: Call<Unit>, response: Response<Unit>) {
                     val result = response.code()
                     when(result){
@@ -49,7 +59,7 @@ class CommunicationWork {
                         }
                         409 -> {
                             Log.d("자리 사용중", "$result")
-                            Toast.makeText(activity,"이미 사용중인 자리입니다",Toast.LENGTH_SHORT).show()
+                            Toast.makeText(activity,"이미 사용중인 자리입니다", Toast.LENGTH_SHORT).show()
                         }
                     }
                 }
@@ -62,7 +72,7 @@ class CommunicationWork {
 
     fun cancel(seatId: Long, activity: SeatSelectionActivity){
         seatService.cancel(seatId)
-            .enqueue(object : Callback<Unit>{
+            .enqueue(object : Callback<Unit> {
                 override fun onResponse(call: Call<Unit>, response: Response<Unit>) {
                     val result = response.code()
                     when(result){
@@ -71,7 +81,7 @@ class CommunicationWork {
                         }
                         409 -> {
                             Log.d("자리 사용안하는중", "$result")
-                            Toast.makeText(activity,"사용중이지 않은 좌석입니다",Toast.LENGTH_SHORT).show()
+                            Toast.makeText(activity,"사용중이지 않은 좌석입니다", Toast.LENGTH_SHORT).show()
                         }
                     }
                 }

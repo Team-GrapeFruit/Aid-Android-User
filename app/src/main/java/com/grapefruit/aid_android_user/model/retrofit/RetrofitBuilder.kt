@@ -1,6 +1,6 @@
-package com.grapefruit.aid_android_user.feature_seat.presentation.model
+package com.grapefruit.aid_android_user.model.retrofit
 
-import com.grapefruit.aid_android_user.feature_seat.data.api.SeatService
+import com.grapefruit.aid_android_user.model.api.SeatService
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 

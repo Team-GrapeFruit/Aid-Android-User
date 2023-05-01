@@ -1,4 +1,4 @@
-package com.grapefruit.aid_android_user.feature_seat.presentation
+package com.grapefruit.aid_android_user.view
 
 import android.content.Intent
 import android.os.Bundle
@@ -15,9 +15,7 @@ import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
 import com.grapefruit.aid_android_user.R
 import com.grapefruit.aid_android_user.databinding.ActivitySeatSelectionBinding
-import com.grapefruit.aid_android_user.feature_seat.presentation.model.CommunicationWork
-import com.grapefruit.aid_android_user.feature_seat.presentation.vm.SeatSelectionViewModel
-import com.grapefruit.aid_android_user.view.chat.Chat
+import com.grapefruit.aid_android_user.viewmodel.SeatSelectionViewModel
 
 class SeatSelectionActivity : AppCompatActivity() {
 
@@ -30,15 +28,13 @@ class SeatSelectionActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        viewModel =
+            ViewModelProvider(this@SeatSelectionActivity)[SeatSelectionViewModel::class.java]
 
-        val seat = CommunicationWork()
-        seat.seatList(storeId, this@SeatSelectionActivity)
+        viewModel.seatList(storeId, this)
 
         binding = DataBindingUtil.setContentView(this, R.layout.activity_seat_selection)
         binding.activity = this@SeatSelectionActivity
-
-        viewModel =
-            ViewModelProvider(this@SeatSelectionActivity)[SeatSelectionViewModel::class.java]
 
         viewModel.seatListResponse.observe(this) {
             with(binding) {
@@ -56,10 +52,10 @@ class SeatSelectionActivity : AppCompatActivity() {
             if (seatId != 0L) {
                 // 자리 선택하기
                 if (seatState == 0) {
-                    seat.allow(seatId, this@SeatSelectionActivity)
+                    viewModel.allow(seatId, this@SeatSelectionActivity)
                     // 자리 선택취소하기
                 } else {
-                    seat.cancel(seatId, this@SeatSelectionActivity)
+                    viewModel.cancel(seatId, this@SeatSelectionActivity)
                 }
             } else {
                 Toast.makeText(this, "자리를 선택해주세요", Toast.LENGTH_SHORT).show()
@@ -72,8 +68,7 @@ class SeatSelectionActivity : AppCompatActivity() {
     override fun onResume() {
         super.onResume()
 
-        val seat = CommunicationWork()
-        seat.seatList(storeId, this@SeatSelectionActivity)
+        viewModel.seatList(storeId, this)
     }
 
     private fun createTable(index: Int): View {

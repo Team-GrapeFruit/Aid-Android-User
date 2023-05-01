@@ -2,16 +2,16 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context=".feature_seat.presentation.SeatSelectionActivity">
+    tools:context=".view.SeatSelectionActivity">
 
     <data>
         <variable
             name="activity"
-            type="com.grapefruit.aid_android_user.feature_seat.presentation.SeatSelectionActivity" />
+            type="com.grapefruit.aid_android_user.view.SeatSelectionActivity" />
 
         <variable
             name="viewModel"
-            type="com.grapefruit.aid_android_user.feature_seat.presentation.vm.SeatSelectionViewModel" />
+            type="com.grapefruit.aid_android_user.viewmodel.SeatSelectionViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

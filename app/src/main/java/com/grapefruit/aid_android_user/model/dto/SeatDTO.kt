@@ -1,4 +1,4 @@
-package com.grapefruit.aid_android_user.feature_seat.data.dto
+package com.grapefruit.aid_android_user.model.dto
 
 data class SeatDTO(
     val seatId: Long,
