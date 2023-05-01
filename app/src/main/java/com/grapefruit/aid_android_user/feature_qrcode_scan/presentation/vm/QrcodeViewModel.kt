@@ -20,9 +20,10 @@ class QrcodeViewModel : ViewModel(){
     fun storeLoad(storeId: String){
         viewModelScope.launch {
             val response = ApiBulider.searchStore(storeId)
-            if(response.body() != null){
+
+            if(response.code() == 200){
                 _storeInfo.value = response.body()
-                Log.d("testt",response.body().toString())
+                Log.d("testt_a",response.body().toString())
             }
         }
     }
