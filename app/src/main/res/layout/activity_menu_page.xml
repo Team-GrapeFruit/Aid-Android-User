@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.grapefruit.aid_android_user.view.menupage.MenuPage">
+    tools:context="com.grapefruit.aid_android_user.view.MenuPage">
 
 
 

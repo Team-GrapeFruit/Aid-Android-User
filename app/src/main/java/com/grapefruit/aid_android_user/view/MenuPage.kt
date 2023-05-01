@@ -1,4 +1,4 @@
-package com.grapefruit.aid_android_user.view.menupage
+package com.grapefruit.aid_android_user.view
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
