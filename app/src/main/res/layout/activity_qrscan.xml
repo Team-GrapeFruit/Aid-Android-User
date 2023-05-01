@@ -12,14 +12,10 @@
         android:layout_height="match_parent"
         tools:context=".feature_qrcode_scan.presentation.QrScanActivity">
 
-        <com.journeyapps.barcodescanner.DecoratedBarcodeView
-            android:id="@+id/barcode_view"
+        <SurfaceView
+            android:id="@+id/surface_view"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentBottom="true" />
+            android:layout_height="match_parent" />
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/qr_top_top"
             android:orientation="horizontal"

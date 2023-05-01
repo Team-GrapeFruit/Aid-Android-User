@@ -26,9 +26,11 @@ import com.journeyapps.barcodescanner.*
 import java.io.IOException
 
 
-class QrScanActivity : AppCompatActivity() {
+class QrScanActivity : AppCompatActivity(), SurfaceHolder.Callback {
 
-    private lateinit var barcodeView: DecoratedBarcodeView
+    private lateinit var cameraSource: CameraSource
+    private lateinit var surfaceView: SurfaceView
+    private var isScanned: Boolean = false
     private lateinit var binding: ActivityQrscanBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -36,63 +38,78 @@ class QrScanActivity : AppCompatActivity() {
         binding = ActivityQrscanBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        surfaceView = binding.surfaceView
+        surfaceView.holder.addCallback(this)
+
         checkPermission()
     }
 
-    private fun setupControls() {
-        barcodeView = binding.barcodeView
-        val formats = listOf(BarcodeFormat.QR_CODE)
-        barcodeView.barcodeView.decoderFactory = DefaultDecoderFactory(formats)
-        barcodeView.decodeSingle(object : BarcodeCallback {
-            override fun barcodeResult(result: BarcodeResult?) {
-                result?.let {
-                    val barcodeValue = it.text // 스캔된 바코드 값
-                    Log.d("testt", barcodeValue)
-                    val intent = Intent(this@QrScanActivity, ShopSelectActivity::class.java)
-                    intent.putExtra("storeId", barcodeValue)
-                    startActivity(intent)
-                    finish()
-                }
-            }
-
-            override fun possibleResultPoints(resultPoints: MutableList<ResultPoint>?) {
-
-            }
-        })
-        barcodeView.resume()
-    }
-
     private fun checkPermission() {
-        val cameraPermission = ContextCompat.checkSelfPermission(this,
-            android.Manifest.permission.CAMERA)
+        val cameraPermission = ContextCompat.checkSelfPermission(this, android.Manifest.permission.CAMERA)
         if (cameraPermission == PackageManager.PERMISSION_GRANTED) {
             // 카메라 권한이 승인된 상태일 경우
-            Log.d("testt","Y")
             setupControls()
         } else {
             // 카메라 권한이 승인되지 않았을 경우
-            Log.d("testt","N")
             requestPermission()
         }
     }
 
     private fun requestPermission() {
-        ActivityCompat.requestPermissions(this,
-            arrayOf(Manifest.permission.CAMERA), 1004)
-        Log.d("testt", arrayOf(Manifest.permission.CAMERA).toString())
+        ActivityCompat.requestPermissions(this, arrayOf(Manifest.permission.CAMERA), 1004)
     }
 
-    override fun onRequestPermissionsResult(
-        requestCode: Int,
-        permissions: Array<out String>,
-        grantResults: IntArray
-    ) {
+    private fun setupControls() {
+        val barcodeDetector = BarcodeDetector.Builder(this)
+            .setBarcodeFormats(Barcode.QR_CODE)
+            .build()
+
+        cameraSource = CameraSource.Builder(this, barcodeDetector)
+            .setAutoFocusEnabled(true)
+            .build()
+
+        surfaceView.holder.addCallback(object : SurfaceHolder.Callback {
+            override fun surfaceCreated(holder: SurfaceHolder) {
+                try {
+                    cameraSource.start(holder)
+                } catch (e: IOException) {
+                    e.printStackTrace()
+                }
+            }
+
+            override fun surfaceChanged(holder: SurfaceHolder, format: Int, width: Int, height: Int) {}
+
+            override fun surfaceDestroyed(holder: SurfaceHolder) {
+                cameraSource.stop()
+            }
+        })
+
+        barcodeDetector.setProcessor(object : Detector.Processor<Barcode> {
+            override fun release() {}
+
+            override fun receiveDetections(detections: Detector.Detections<Barcode>) {
+                if (!isScanned) {
+                    isScanned = true
+                    val barcodes = detections.detectedItems
+                    if (barcodes.size() != 0) {
+                        val barcodeValue = barcodes.valueAt(0).displayValue // 스캔된 바코드 값
+                        val intent = Intent(this@QrScanActivity, ShopSelectActivity::class.java)
+                        intent.putExtra("storeId", barcodeValue)
+                        startActivity(intent)
+                        finish()
+                    }
+                }
+            }
+        })
+    }
+
+    override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<out String>, grantResults: IntArray) {
         when(requestCode){
             1004 ->{
                 if(grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                     setupControls()
                 } else {
-                    Log.d("testt","end")
+                    finish()
                 }
             }
             else -> {
@@ -100,6 +117,14 @@ class QrScanActivity : AppCompatActivity() {
             }
         }
     }
+
+    override fun surfaceCreated(holder: SurfaceHolder) {
+        checkPermission()
+    }
+
+    override fun surfaceChanged(holder: SurfaceHolder, format: Int, width: Int, height: Int) {}
+
+    override fun surfaceDestroyed(holder: SurfaceHolder) {}
 
 }
 
