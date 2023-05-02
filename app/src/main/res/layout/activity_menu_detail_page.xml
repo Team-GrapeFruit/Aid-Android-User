@@ -1,9 +1,541 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".feature_menu.presentation.MenuDetailPageActivity">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="#1Ab8b8b8">
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/menu_detail_layout"
+        android:layout_width="match_parent"
+        android:layout_height="0.1dp"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.6"/>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@drawable/menu_detail_page_layout"
+        android:elevation="25dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="@id/menu_detail_layout"
+        tools:ignore="MissingConstraints">
+
+        <!-- 뒤로가기 버기 -->
+        <ImageView
+            android:id="@+id/back_btn"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintStart_toStartOf="@id/back_btn_guideline_start"
+            app:layout_constraintEnd_toEndOf="@id/back_btn_guideline_end"
+            app:layout_constraintTop_toTopOf="@id/back_btn_guideline_top"
+            app:layout_constraintBottom_toBottomOf="@id/back_btn_guideline_bottom"
+            android:background="@drawable/back_btn"/>
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/back_btn_guideline_top"
+            android:layout_width="match_parent"
+            android:layout_height="0.1dp"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.06"/>
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/back_btn_guideline_bottom"
+            android:layout_width="match_parent"
+            android:layout_height="0.1dp"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.093"/>
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/back_btn_guideline_start"
+            android:layout_width="match_parent"
+            android:layout_height="0.1dp"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.045"/>
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/back_btn_guideline_end"
+            android:layout_width="match_parent"
+            android:layout_height="0.1dp"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.088"/>
+
+        <!-- 장바구니 버튼 -->
+        <ImageView
+            android:id="@+id/cart_image"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintStart_toStartOf="@id/cart_image_guideline_start"
+            app:layout_constraintEnd_toEndOf="@id/cart_image_guideline_end"
+            app:layout_constraintTop_toTopOf="@id/cart_image_guideline_top"
+            app:layout_constraintBottom_toBottomOf="@id/cart_image_guideline_bottom"
+            android:background="@drawable/cart_btn"/>
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/cart_image_guideline_top"
+            android:layout_width="match_parent"
+            android:layout_height="0.1dp"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.06"/>
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/cart_image_guideline_bottom"
+            android:layout_width="match_parent"
+            android:layout_height="0.1dp"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.1"/>
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/cart_image_guideline_start"
+            android:layout_width="match_parent"
+            android:layout_height="0.1dp"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.89"/>
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/cart_image_guideline_end"
+            android:layout_width="match_parent"
+            android:layout_height="0.1dp"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.956"/>
+
+        <!-- 메뉴 이미지 -->
+        <ImageView
+            android:id="@+id/menu_image"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintStart_toStartOf="@id/menu_image_guideline_start"
+            app:layout_constraintEnd_toEndOf="@id/menu_image_guideline_end"
+            app:layout_constraintTop_toTopOf="@id/menu_image_guideline_top"
+            app:layout_constraintBottom_toBottomOf="@id/menu_image_guideline_bottom"
+            android:background="@drawable/menu_image2"/>
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/menu_image_guideline_top"
+            android:layout_width="match_parent"
+            android:layout_height="0.1dp"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.105"/>
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/menu_image_guideline_bottom"
+            android:layout_width="match_parent"
+            android:layout_height="0.1dp"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.559"/>
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/menu_image_guideline_start"
+            android:layout_width="match_parent"
+            android:layout_height="0.1dp"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.135"/>
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/menu_image_guideline_end"
+            android:layout_width="match_parent"
+            android:layout_height="0.1dp"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.857"/>
+
+        <!-- 메뉴 이름 -->
+        <TextView
+            android:id="@+id/menu_name"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintStart_toStartOf="@id/menu_name_guideline_start"
+            app:layout_constraintEnd_toEndOf="@id/menu_name_guideline_end"
+            app:layout_constraintTop_toTopOf="@id/menu_name_guideline_top"
+            app:layout_constraintBottom_toBottomOf="@id/menu_name_guideline_bottom"
+            android:text="엽기 메뉴"
+            android:textSize="20sp"
+            android:textColor="@color/black"
+            android:textStyle="bold"/>
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/menu_name_guideline_top"
+            android:layout_width="match_parent"
+            android:layout_height="0.1dp"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.58"/>
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/menu_name_guideline_bottom"
+            android:layout_width="match_parent"
+            android:layout_height="0.1dp"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.649"/>
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/menu_name_guideline_start"
+            android:layout_width="match_parent"
+            android:layout_height="0.1dp"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.045"/>
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/menu_name_guideline_end"
+            android:layout_width="match_parent"
+            android:layout_height="0.1dp"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.28"/>
+
+        <!-- 메뉴 설명 -->
+        <TextView
+            android:id="@+id/menu_description"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintStart_toStartOf="@id/menu_description_guide_start"
+            app:layout_constraintEnd_toEndOf="@id/menu_description_guide_end"
+            app:layout_constraintTop_toTopOf="@id/menu_description_guide_top"
+            app:layout_constraintBottom_toBottomOf="@id/menu_description_guide_bottom"
+            android:text="분모자 떡볶이 선택 시, 떡이 분모자로 변경되어 제공됩니다."/>
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/menu_description_guide_top"
+            android:layout_width="match_parent"
+            android:layout_height="0.1dp"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.67"/>
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/menu_description_guide_bottom"
+            android:layout_width="match_parent"
+            android:layout_height="0.1dp"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.783"/>
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/menu_description_guide_start"
+            android:layout_width="match_parent"
+            android:layout_height="0.1dp"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.045"/>
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/menu_description_guide_end"
+            android:layout_width="match_parent"
+            android:layout_height="0.1dp"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.893"/>
+
+        <!-- 가격 -->
+        <TextView
+            android:id="@+id/price"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintStart_toStartOf="@id/price_guideline_start"
+            app:layout_constraintEnd_toEndOf="@id/price_guideline_end"
+            app:layout_constraintTop_toTopOf="@id/price_guideline_top"
+            app:layout_constraintBottom_toBottomOf="@id/price_guideline_bottom"
+            android:text="@string/price"
+            android:textColor="@color/black"
+            android:textSize="15sp"/>
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/price_guideline_top"
+            android:layout_width="match_parent"
+            android:layout_height="0.1dp"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.825"/>
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/price_guideline_bottom"
+            android:layout_width="match_parent"
+            android:layout_height="0.1dp"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.889"/>
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/price_guideline_start"
+            android:layout_width="match_parent"
+            android:layout_height="0.1dp"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.045"/>
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/price_guideline_end"
+            android:layout_width="match_parent"
+            android:layout_height="0.1dp"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.138"/>
+
+        <!-- 몇원 -->
+        <TextView
+            android:id="@+id/cost"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintStart_toStartOf="@id/num_price_guideline_start"
+            app:layout_constraintEnd_toEndOf="@id/num_price_guideline_end"
+            app:layout_constraintTop_toTopOf="@id/num_price_guideline_top"
+            app:layout_constraintBottom_toBottomOf="@id/num_price_guideline_bottom"
+            android:text="16,000원"
+            android:textSize="15sp"
+            android:textColor="@color/black"/>
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/num_price_guideline_top"
+            android:layout_width="match_parent"
+            android:layout_height="0.1dp"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.825"/>
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/num_price_guideline_bottom"
+            android:layout_width="match_parent"
+            android:layout_height="0.1dp"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.889"/>
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/num_price_guideline_start"
+            android:layout_width="match_parent"
+            android:layout_height="0.1dp"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.776"/>
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/num_price_guideline_end"
+            android:layout_width="match_parent"
+            android:layout_height="0.1dp"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.958"/>
+
+        <!-- 가격 수량 사이 선 -->
+        <View
+            android:id="@+id/view"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/view_guideline_top"
+            app:layout_constraintBottom_toBottomOf="@id/view_guideline_bottom"
+            android:background="#dbdbdb"/>
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/view_guideline_top"
+            android:layout_width="match_parent"
+            android:layout_height="0.1dp"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.898"/>
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/view_guideline_bottom"
+            android:layout_width="match_parent"
+            android:layout_height="0.1dp"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.9"/>
+
+        <!-- 수량 -->
+        <TextView
+            android:id="@+id/quantity"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintStart_toStartOf="@id/quantity_guideline_start"
+            app:layout_constraintEnd_toEndOf="@id/quantity_guideline_end"
+            app:layout_constraintTop_toTopOf="@id/quantity_guideline_top"
+            app:layout_constraintBottom_toBottomOf="@id/quantity_guideline_bottom"
+            android:text="@string/quantity"
+            android:textSize="15sp"
+            android:textColor="@color/black"/>
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/quantity_guideline_top"
+            android:layout_width="match_parent"
+            android:layout_height="0.1dp"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.919"/>
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/quantity_guideline_bottom"
+            android:layout_width="match_parent"
+            android:layout_height="0.1dp"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_begin="460dp" />
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/quantity_guideline_start"
+            android:layout_width="match_parent"
+            android:layout_height="0.1dp"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.045"/>
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/quantity_guideline_end"
+            android:layout_width="match_parent"
+            android:layout_height="0.1dp"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.14"/>
+
+        <!-- 옵션 변경 버튼 -->
+        <Button
+            android:id="@+id/change_option_btn"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintStart_toStartOf="@id/change_option_btn_guideline_start"
+            app:layout_constraintEnd_toEndOf="@id/change_option_btn_guideline_end"
+            app:layout_constraintTop_toTopOf="@id/change_option_btn_guideline_top"
+            app:layout_constraintBottom_toBottomOf="@id/change_option_btn_guideline_bottom"
+            android:background="@drawable/select_menu_option_background"
+            android:text="@string/change_option"
+            android:textSize="10sp"/>
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/change_option_btn_guideline_top"
+            android:layout_width="match_parent"
+            android:layout_height="0.1dp"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.926"/>
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/change_option_btn_guideline_bottom"
+            android:layout_width="match_parent"
+            android:layout_height="0.1dp"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.963"/>
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/change_option_btn_guideline_start"
+            android:layout_width="match_parent"
+            android:layout_height="0.1dp"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.608"/>
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/change_option_btn_guideline_end"
+            android:layout_width="match_parent"
+            android:layout_height="0.1dp"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.77"/>
+
+        <!-- 수량 개수 변경 버튼 -->
+        <Button
+            android:id="@+id/change_quantity"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintStart_toStartOf="@id/change_quantity_btn_guideline_start"
+            app:layout_constraintEnd_toEndOf="@id/change_quantity_btn_guideline_end"
+            app:layout_constraintTop_toTopOf="@id/change_quantity_btn_guideline_top"
+            app:layout_constraintBottom_toBottomOf="@id/change_quantity_btn_guideline_bottom"
+            android:background="@drawable/select_menu_option_background"
+            android:text="1"
+            android:textSize="10sp"/>
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/change_quantity_btn_guideline_top"
+            android:layout_width="match_parent"
+            android:layout_height="0.1dp"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.926"/>
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/change_quantity_btn_guideline_bottom"
+            android:layout_width="match_parent"
+            android:layout_height="0.1dp"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.963"/>
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/change_quantity_btn_guideline_start"
+            android:layout_width="match_parent"
+            android:layout_height="0.1dp"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.788"/>
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/change_quantity_btn_guideline_end"
+            android:layout_width="match_parent"
+            android:layout_height="0.1dp"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.95"/>
+
+        <!-- 수량 증가 버튼 -->
+        <ImageView
+            android:id="@+id/quantity_plus_btn"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintStart_toStartOf="@id/quantity_plus_btn_guideline_start"
+            app:layout_constraintEnd_toEndOf="@id/quantity_plus_btn_guideline_end"
+            app:layout_constraintTop_toTopOf="@id/quantity_plus_btn_guideline_top"
+            app:layout_constraintBottom_toBottomOf="@id/quantity_plus_btn_guideline_bottom"
+            android:background="@drawable/plus"/>
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/quantity_plus_btn_guideline_top"
+            android:layout_width="match_parent"
+            android:layout_height="0.1dp"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.935"/>
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/quantity_plus_btn_guideline_bottom"
+            android:layout_width="match_parent"
+            android:layout_height="0.1dp"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.953"/>
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/quantity_plus_btn_guideline_start"
+            android:layout_width="match_parent"
+            android:layout_height="0.1dp"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.91"/>
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/quantity_plus_btn_guideline_end"
+            android:layout_width="match_parent"
+            android:layout_height="0.1dp"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.934"/>
+
+        <!-- 수량 감소 버튼 -->
+        <ImageView
+            android:id="@+id/quantity_minus_btn"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintStart_toStartOf="@id/quantity_minus_btn_guideline_start"
+            app:layout_constraintEnd_toEndOf="@id/quantity_minus_btn_guideline_end"
+            app:layout_constraintTop_toTopOf="@id/quantity_minus_btn_guideline_top"
+            app:layout_constraintBottom_toBottomOf="@id/quantity_minus_btn_guideline_bottom"
+            android:background="@drawable/minus"/>
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/quantity_minus_btn_guideline_top"
+            android:layout_width="match_parent"
+            android:layout_height="0.1dp"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.944"/>
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/quantity_minus_btn_guideline_bottom"
+            android:layout_width="match_parent"
+            android:layout_height="0.1dp"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.948"/>
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/quantity_minus_btn_guideline_start"
+            android:layout_width="match_parent"
+            android:layout_height="0.1dp"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.803"/>
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/quantity_minus_btn_guideline_end"
+            android:layout_width="match_parent"
+            android:layout_height="0.1dp"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.833"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <!-- 장바구니 담기 버튼 -->
+
+    <Button
+        android:id="@+id/cart_btn"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@drawable/btn_background"
+        android:text="@string/add_shopping_basket"
+        android:textColor="#ffffff"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="@id/cart_btn_guideline_bottom"
+        app:layout_constraintEnd_toEndOf="@id/cart_btn_guideline_end"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@id/cart_btn_guideline_start"
+        app:layout_constraintTop_toTopOf="@id/cart_btn_guideline_top"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/cart_btn_guideline_top"
+        android:layout_width="match_parent"
+        android:layout_height="0.1dp"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.82"/>
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/cart_btn_guideline_bottom"
+        android:layout_width="match_parent"
+        android:layout_height="0.1dp"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.885"/>
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/cart_btn_guideline_start"
+        android:layout_width="match_parent"
+        android:layout_height="0.1dp"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.044"/>
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/cart_btn_guideline_end"
+        android:layout_width="match_parent"
+        android:layout_height="0.1dp"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.956"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

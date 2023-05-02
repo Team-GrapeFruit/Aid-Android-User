@@ -1,23 +1,22 @@
 package com.grapefruit.aid_android_user.feature_menu.presentation
 
-import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import android.widget.AbsListView.RecyclerListener
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
-import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.grapefruit.aid_android_user.MainActivity
+import com.bumptech.glide.Glide
 import com.grapefruit.aid_android_user.R
 import com.grapefruit.aid_android_user.databinding.ActivityMenuPageBinding
 import com.grapefruit.aid_android_user.databinding.MenuItemListBinding
 import com.grapefruit.aid_android_user.feature_menu.data.dto.MenuDTO
-import com.grapefruit.aid_android_user.feature_menu.presentation.model.retrofit.CommunicationWork
+import com.grapefruit.aid_android_user.feature_menu.presentation.adaper.menu.MenuAdapter
 import com.grapefruit.aid_android_user.feature_menu.presentation.viewmodel.MenuPageViewModel
 import com.grapefruit.aid_android_user.view.chat.ChatAcitivity
 
@@ -30,53 +29,42 @@ class MenuPageActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
 
-        val itemList = ArrayList<MenuDTO>()
-        val menuAdapter = MenuListAdapter(itemList)
-        binding.menuList.adapter = menuAdapter
-
         val storeId = 1L
+        val categoryId = 1L
 
-        val menu = CommunicationWork()
+        /*val menu = CommunicationWork()
         menu.menulist(storeId, this@MenuPageActivity)
+        menu.category(categoryId, this@MenuPageActivity)*/
 
-        val viewModel = ViewModelProvider(this@MenuPageActivity)[MenuPageViewModel::class.java]
-        val menuResponse = viewModel.menuListResponse
+        val viewModel by viewModels<MenuPageViewModel>()
+        viewModel.menuListRoad(storeId)
+        //viewModel.categoryMenuListRoad(categoryId)
 
-        binding.backBtn.setOnClickListener {
-            val intent = Intent(this@MenuPageActivity, ChatAcitivity::class.java)
-            startActivity(intent)
+        viewModel.menuListResponse.observe(this) {
+            Log.d("minseok", "observe")
+            Log.d("minseok", it.toString())
+            val menuAdapter = MenuAdapter(ArrayList(it))
+            binding.menuList.layoutManager = LinearLayoutManager(this)
+            menuAdapter.setItemOnClickListener(object : MenuAdapter.OnItemClickListener {
+                override fun onClick(position: Int) {
+                    val intent = Intent(this@MenuPageActivity, MenuDetailPageActivity::class.java)
+                    Log.d("testt",it[position].toString())
+                    //intent.putExtra("data", it[position])
+                    startActivity(intent)
+                }
+            })
+            binding.menuList.adapter = menuAdapter
         }
-    }
-}
 
-class MenuListAdapter (var itemlist: ArrayList<MenuDTO>)
-    : RecyclerView.Adapter<MenuListAdapter.Holder>() {
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): Holder {
-        val binding =  MenuItemListBinding.inflate(LayoutInflater.from(parent.context), parent, false)
-        return Holder(binding)
-    }
+        with(binding) {
+            backBtn.setOnClickListener {
+                val intent = Intent(this@MenuPageActivity, ChatAcitivity::class.java)
+                startActivity(intent)
+            }
 
-    override fun getItemCount(): Int {
-        return itemlist.count()
-    }
-
-    override fun onBindViewHolder(holder: Holder, position: Int) {
-        val menu  = itemlist.get(position)
-        holder.bind(menu)
-    }
-    class Holder(val binding : MenuItemListBinding): RecyclerView.ViewHolder(binding.root) {
-
-        private val context = binding.root.context
-
-        fun bind(menuDTO: MenuDTO) {
-
-            val intent = Intent(context, R.layout.menu_detail_page::class.java)
-            context.startActivity(intent)
-
-            with(binding) {
-                menuName.text = menuDTO.menuName
-                menuDescription.text = menuDTO.description
-                cost.text = menuDTO.cost.toString()
+            cartImage.setOnClickListener {
+                val intent = Intent(this@MenuPageActivity, ShoppingBasketPageActivity::class.java)
+                startActivity(intent)
             }
         }
     }

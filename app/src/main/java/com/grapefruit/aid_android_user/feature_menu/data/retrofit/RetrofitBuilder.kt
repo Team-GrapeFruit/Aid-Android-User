@@ -1,8 +1,9 @@
-package com.grapefruit.aid_android_user.feature_menu.presentation.model.retrofit
+package com.grapefruit.aid_android_user.feature_menu.data.retrofit
 
 import com.grapefruit.aid_android_user.feature_menu.data.api.MenuService
 import com.grapefruit.aid_android_user.feature_menu.data.api.PurchaseService
 import com.grapefruit.aid_android_user.feature_menu.data.dto.MenuDTO
+import com.grapefruit.aid_android_user.feature_menu.data.dto.MenuDetailDTO
 import com.grapefruit.aid_android_user.feature_menu.data.dto.PurchaseDTO
 import com.grapefruit.aid_android_user.feature_menu.data.dto.PurchaseSeatDTO
 import retrofit2.Response
@@ -31,7 +32,7 @@ object RetrofitBuilder {
         return menuPage.menuCategory(categoryId)
     }
 
-    suspend fun menuDetail(menuId: Long): Response<List<MenuDTO>> {
+    suspend fun menuDetail(menuId: Long): Response<MenuDetailDTO> {
         return menuPage.menuDetail(menuId)
     }
 
