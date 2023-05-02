@@ -1,5 +1,7 @@
 package com.grapefruit.aid_android_user.feature_qrcode_scan.presentation
 
+import android.app.Activity
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -24,13 +26,10 @@ class ShopSelectActivity : AppCompatActivity() {
 
         val storeId = intent.getStringExtra("storeId").toString()
         Log.d("testt_a",storeId)
-        //Toast.makeText(this,storeId,Toast.LENGTH_SHORT).show()
 
         viewModel.storeLoad(storeId)
-
         viewModel.storeInfo.observe(this){
-            Log.d("testt_a",it.toString())
-            Toast.makeText(this,it.toString(),Toast.LENGTH_SHORT).show()
+            Log.d("testt_sa", it.toString())
         }
     }
 }

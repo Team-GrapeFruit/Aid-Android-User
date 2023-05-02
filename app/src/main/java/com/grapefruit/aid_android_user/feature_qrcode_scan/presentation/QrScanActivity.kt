@@ -85,17 +85,22 @@ class QrScanActivity : AppCompatActivity(), SurfaceHolder.Callback {
         })
 
         barcodeDetector.setProcessor(object : Detector.Processor<Barcode> {
-            override fun release() {}
+            override fun release() {
+                cameraSource.stop()
+                isScanned = false
+            }
 
             override fun receiveDetections(detections: Detector.Detections<Barcode>) {
-                if (!isScanned) {
+                if (true) {
                     isScanned = true
                     val barcodes = detections.detectedItems
                     if (barcodes.size() != 0) {
+                        print("test")
                         val barcodeValue = barcodes.valueAt(0).displayValue // 스캔된 바코드 값
                         val intent = Intent(this@QrScanActivity, ShopSelectActivity::class.java)
                         intent.putExtra("storeId", barcodeValue)
                         startActivity(intent)
+                        release()
                         finish()
                     }
                 }
@@ -119,7 +124,7 @@ class QrScanActivity : AppCompatActivity(), SurfaceHolder.Callback {
     }
 
     override fun surfaceCreated(holder: SurfaceHolder) {
-        checkPermission()
+        //checkPermission()
     }
 
     override fun surfaceChanged(holder: SurfaceHolder, format: Int, width: Int, height: Int) {}
@@ -127,4 +132,3 @@ class QrScanActivity : AppCompatActivity(), SurfaceHolder.Callback {
     override fun surfaceDestroyed(holder: SurfaceHolder) {}
 
 }
-

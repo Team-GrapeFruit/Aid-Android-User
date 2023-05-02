@@ -11,19 +11,23 @@ import com.grapefruit.aid_android_user.feature_qrcode_scan.data.DTO.ShopDetail
 import kotlinx.coroutines.launch
 
 
-class QrcodeViewModel : ViewModel(){
+class QrcodeViewModel : ViewModel() {
     private var _storeInfo = MutableLiveData<ShopDetail>()
 
     val storeInfo: LiveData<ShopDetail>
         get() = _storeInfo
 
-    fun storeLoad(storeId: String){
+    fun storeLoad(storeId: String) {
         viewModelScope.launch {
             val response = ApiBulider.searchStore(storeId)
+            Log.d("response", response.code().toString())
 
-            if(response.code() == 200){
+            if (response.code() == 200) {
                 _storeInfo.value = response.body()
-                Log.d("testt_a",response.body().toString())
+                Log.d("testt_a", response.body().toString())
+            } else {
+
+                Log.d("testt_f", "fail")
             }
         }
     }

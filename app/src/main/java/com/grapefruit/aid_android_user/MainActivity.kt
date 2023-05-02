@@ -16,9 +16,9 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        binding.tv.setOnClickListener {
-            val intent: Intent = Intent(this@MainActivity, QrScanActivity::class.java)
-            startActivity(intent)
-        }
+
+        val intent: Intent = Intent(this@MainActivity, QrScanActivity::class.java)
+        startActivity(intent)
+        finish()
     }
 }
