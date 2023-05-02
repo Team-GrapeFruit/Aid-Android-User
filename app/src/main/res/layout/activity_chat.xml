@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".view.Chat">
+    tools:context=".view.chat.Chat">
 
     <!-- 뒤로가기 버튼 -->
     <ImageView

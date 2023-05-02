@@ -1,4 +1,4 @@
-package com.grapefruit.aid_android_user.view
+package com.grapefruit.aid_android_user.view.chat
 
 import android.annotation.SuppressLint
 import android.os.Bundle
