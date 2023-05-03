@@ -1,0 +1,291 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".view.SeatSelectionActivity">
+
+    <data>
+        <variable
+            name="activity"
+            type="com.grapefruit.aid_android_user.view.SeatSelectionActivity" />
+
+        <variable
+            name="viewModel"
+            type="com.grapefruit.aid_android_user.viewmodel.SeatSelectionViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <!-- 뒤로가기 버튼 -->
+        <ImageView
+            android:id="@+id/btn_back"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="@drawable/btn_back"
+            app:layout_constraintBottom_toBottomOf="@id/btn_back_guide_bottom"
+            app:layout_constraintEnd_toEndOf="@id/btn_back_guide_end"
+            app:layout_constraintStart_toStartOf="@id/btn_back_guide_start"
+            app:layout_constraintTop_toTopOf="@id/btn_back_guide_top" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/btn_back_guide_start"
+            android:layout_width="0.1dp"
+            android:layout_height="0.1dp"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.04" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/btn_back_guide_end"
+            android:layout_width="0.1dp"
+            android:layout_height="0.1dp"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.1" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/btn_back_guide_top"
+            android:layout_width="0.1dp"
+            android:layout_height="0.1dp"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.038" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/btn_back_guide_bottom"
+            android:layout_width="0.1dp"
+            android:layout_height="0.1dp"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.065" />
+
+        <!-- 자리선택 택스트 -->
+        <TextView
+            android:id="@+id/seat_selection_text"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:text="@string/seat_selection"
+            android:textSize="24sp"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:fontFamily="@font/pretendard_variable"
+            android:gravity="center"
+            app:layout_constraintStart_toStartOf="@id/seat_selection_text_guide_start"
+            app:layout_constraintEnd_toEndOf="@id/seat_selection_text_guide_end"
+            app:layout_constraintTop_toTopOf="@id/seat_selection_text_guide_top"
+            app:layout_constraintBottom_toBottomOf="@id/seat_selection_text_guide_bottom"/>
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/seat_selection_text_guide_start"
+            android:layout_width="0.1dp"
+            android:layout_height="0.1dp"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.35"/>
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/seat_selection_text_guide_end"
+            android:layout_width="0.1dp"
+            android:layout_height="0.1dp"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.65" />
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/seat_selection_text_guide_top"
+            android:layout_width="0.1dp"
+            android:layout_height="0.1dp"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.03"/>
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/seat_selection_text_guide_bottom"
+            android:layout_width="0.1dp"
+            android:layout_height="0.1dp"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.07"/>
+
+
+        <!-- 구분선 -->
+        <ImageView
+            android:id="@+id/line"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/gray"
+            app:layout_constraintTop_toTopOf="@id/line_guide_top" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/line_guide_top"
+            android:layout_width="0.1dp"
+            android:layout_height="0.1dp"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.09" />
+
+        <RelativeLayout
+            android:id="@+id/table"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toTopOf="@id/use"
+            app:layout_constraintTop_toBottomOf="@id/line">
+
+        </RelativeLayout>
+
+        <!-- 사용중 표시 -->
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/use"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="@id/seat_use_guide_bottom"
+            app:layout_constraintEnd_toEndOf="@id/seat_use_guide_end"
+            app:layout_constraintStart_toStartOf="@id/seat_use_guide_start"
+            app:layout_constraintTop_toTopOf="@id/seat_use_guide_top">
+
+            <ImageView
+                android:id="@+id/use_image"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:background="@drawable/use_background"
+                app:layout_constraintDimensionRatio="1:1"
+                app:layout_constraintEnd_toStartOf="@id/use_text"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <TextView
+                android:id="@+id/use_text"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:fontFamily="@font/pretendard_variable"
+                android:gravity="center"
+                android:text="@string/use"
+                android:textColor="@color/black"
+                android:textSize="12sp"
+                app:layout_constraintEnd_toEndOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/seat_use_guide_start"
+            android:layout_width="0.1dp"
+            android:layout_height="0.1dp"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.64" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/seat_use_guide_end"
+            android:layout_width="0.1dp"
+            android:layout_height="0.1dp"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.78" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/seat_use_guide_top"
+            android:layout_width="0.1dp"
+            android:layout_height="0.1dp"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.85" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/seat_use_guide_bottom"
+            android:layout_width="0.1dp"
+            android:layout_height="0.1dp"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.87" />
+
+        <!-- 빈자리 표시 -->
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="@id/seat_empty_guide_bottom"
+            app:layout_constraintEnd_toEndOf="@id/seat_empty_guide_end"
+            app:layout_constraintStart_toStartOf="@id/seat_empty_guide_start"
+            app:layout_constraintTop_toTopOf="@id/seat_empty_guide_top">
+
+            <ImageView
+                android:id="@+id/empty_image"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:background="@drawable/empty_background"
+                app:layout_constraintDimensionRatio="1:1"
+                app:layout_constraintEnd_toStartOf="@id/empty_text"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <TextView
+                android:id="@+id/empty_text"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:fontFamily="@font/pretendard_variable"
+                android:gravity="center"
+                android:text="@string/empty"
+                android:textColor="@color/black"
+                android:textSize="12sp"
+                app:layout_constraintEnd_toEndOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/seat_empty_guide_start"
+            android:layout_width="0.1dp"
+            android:layout_height="0.1dp"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.81" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/seat_empty_guide_end"
+            android:layout_width="0.1dp"
+            android:layout_height="0.1dp"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.96" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/seat_empty_guide_top"
+            android:layout_width="0.1dp"
+            android:layout_height="0.1dp"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.85" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/seat_empty_guide_bottom"
+            android:layout_width="0.1dp"
+            android:layout_height="0.1dp"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.87" />
+
+        <!-- 자리선택 버튼 -->
+        <android.widget.Button
+            android:id="@+id/seat_selection_btn"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="@drawable/seat_selection_btn_background"
+            android:fontFamily="@font/pretendard_variable"
+            android:text="@string/seat_selection"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            app:layout_constraintBottom_toBottomOf="@+id/seat_selection_btn_guide_bottom"
+            app:layout_constraintEnd_toEndOf="@id/seat_selection_btn_guide_end"
+            app:layout_constraintStart_toStartOf="@id/seat_selection_btn_guide_start"
+            app:layout_constraintTop_toTopOf="@id/seat_selection_btn_guide_top" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/seat_selection_btn_guide_start"
+            android:layout_width="0.1dp"
+            android:layout_height="0.1dp"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.04" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/seat_selection_btn_guide_end"
+            android:layout_width="0.1dp"
+            android:layout_height="0.1dp"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.96" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/seat_selection_btn_guide_top"
+            android:layout_width="0.1dp"
+            android:layout_height="0.1dp"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.88" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/seat_selection_btn_guide_bottom"
+            android:layout_width="0.1dp"
+            android:layout_height="0.1dp"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.94" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <!-- 시간 -->
+    <TextView
+        android:id="@+id/time"
+        android:layout_width="50dp"
+        android:layout_height="15dp"
+        app:layout_constraintBottom_toBottomOf="@id/send_msg"
+        app:layout_constraintStart_toStartOf="@id/time_guideline_start"
+        app:layout_constraintEnd_toEndOf="@id/time_guideline_end"
+        android:layout_marginTop="55dp"
+        android:text="오후 8:00"
+        android:textSize="11sp"/>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/time_guideline_start"
+        android:layout_width="match_parent"
+        android:layout_height="0.1dp"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.193"/>
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/time_guideline_end"
+        android:layout_width="match_parent"
+        android:layout_height="0.1dp"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.318"/>
+
+    <!-- 보낸 메시지 -->
+    <TextView
+        android:id="@+id/send_msg"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="@id/send_msg_guideline_start"
+        app:layout_constraintEnd_toEndOf="@id/send_msg_guideline_end"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="43.5dp"
+        android:background="@drawable/send_message_background"
+        android:maxLines="20"
+        android:padding="8dp"/>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/send_msg_guideline_start"
+        android:layout_width="match_parent"
+        android:layout_height="0.1dp"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.338"/>
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/send_msg_guideline_end"
+        android:layout_width="match_parent"
+        android:layout_height="0.1dp"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.84"/>
+
+    <!-- 유저 이미지 백그라운드 -->
+    <ImageView
+        android:id="@+id/user_img_background"
+        android:layout_width="0dp"
+        android:layout_height="40dp"
+        android:background="@drawable/chatting_background"
+        app:layout_constraintEnd_toEndOf="@id/user_img_background_guideline_end"
+        app:layout_constraintStart_toStartOf="@id/user_img_background_guideline_start"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="31dp"/>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/user_img_background_guideline_start"
+        android:layout_width="match_parent"
+        android:layout_height="0.1dp"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.863"/>
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/user_img_background_guideline_end"
+        android:layout_width="match_parent"
+        android:layout_height="0.1dp"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.96"/>
+
+    <ImageView
+        android:layout_width="0dp"
+        android:layout_height="20dp"
+        app:layout_constraintEnd_toEndOf="@id/user_img_guideline_end"
+        app:layout_constraintStart_toStartOf="@id/user_img_guideline_start"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="41dp"
+        android:background="@drawable/user"/>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/user_img_guideline_start"
+        android:layout_width="match_parent"
+        android:layout_height="0.1dp"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.884"/>
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/user_img_guideline_end"
+        android:layout_width="match_parent"
+        android:layout_height="0.1dp"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.935"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
