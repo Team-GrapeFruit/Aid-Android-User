@@ -1,6 +1,5 @@
-package com.grapefruit.aid_android_user.feature_qrcode_scan.data.DTO
+package com.grapefruit.aid_android_user.data.dto
 
-import android.hardware.camera2.params.MandatoryStreamCombination.MandatoryStreamInformation
 import com.google.gson.annotations.SerializedName
 
 data class ShopDetail(

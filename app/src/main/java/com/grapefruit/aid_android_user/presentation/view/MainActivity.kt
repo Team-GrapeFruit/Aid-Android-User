@@ -1,13 +1,9 @@
-package com.grapefruit.aid_android_user
+package com.grapefruit.aid_android_user.presentation.view
 
-import android.app.Activity
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import com.grapefruit.aid_android_user.databinding.ActivityMainBinding
-import com.grapefruit.aid_android_user.feature_qrcode_scan.presentation.QrScanActivity
-import com.grapefruit.aid_android_user.feature_qrcode_scan.presentation.ShopSelectActivity
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding

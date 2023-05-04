@@ -1,6 +1,6 @@
-package com.grapefruit.aid_android_user.feature_qrcode_scan.data.Api
+package com.grapefruit.aid_android_user.data.api
 
-import com.grapefruit.aid_android_user.feature_qrcode_scan.data.DTO.ShopDetail
+import com.grapefruit.aid_android_user.data.dto.ShopDetail
 import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
@@ -13,7 +13,7 @@ object ApiBulider {
         .addConverterFactory(GsonConverterFactory.create())
         .build()
 
-    val service: Api = retrofit.create(Api::class.java)
+    val service: StoreApi = retrofit.create(StoreApi::class.java)
 
     suspend fun searchStore(storeId: String): Response<ShopDetail> {
         return service.searchStore(storeId)

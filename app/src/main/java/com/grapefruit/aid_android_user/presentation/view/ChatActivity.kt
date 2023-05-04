@@ -1,13 +1,10 @@
-package com.grapefruit.aid_android_user.view
+package com.grapefruit.aid_android_user.presentation.view
 
-import android.annotation.SuppressLint
 import android.os.Bundle
-import android.view.WindowManager
-import android.widget.EditText
 import androidx.appcompat.app.AppCompatActivity
 import com.grapefruit.aid_android_user.R
 
-class Chat : AppCompatActivity() {
+class ChatActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

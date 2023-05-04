@@ -1,12 +1,12 @@
-package com.grapefruit.aid_android_user.model.api
+package com.grapefruit.aid_android_user.data.api
 
-import com.grapefruit.aid_android_user.model.dto.SeatDTO
+import com.grapefruit.aid_android_user.data.dto.SeatDTO
 import retrofit2.Call
 import retrofit2.http.GET
 import retrofit2.http.PATCH
 import retrofit2.http.Path
 
-interface SeatService {
+interface SeatApi {
     @GET("/seat/{storeId}")
     fun seatList(
         @Path("storeId") storeId: Long

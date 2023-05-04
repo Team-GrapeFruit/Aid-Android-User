@@ -1,6 +1,5 @@
-package com.grapefruit.aid_android_user.model.retrofit
+package com.grapefruit.aid_android_user.data.api
 
-import com.grapefruit.aid_android_user.model.api.SeatService
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
@@ -14,7 +13,7 @@ object RetrofitBuilder {
             .build()
     }
 
-    val seatService: SeatService by lazy {
-        retrofit.create(SeatService::class.java)
+    val seatApi: SeatApi by lazy {
+        retrofit.create(SeatApi::class.java)
     }
 }
