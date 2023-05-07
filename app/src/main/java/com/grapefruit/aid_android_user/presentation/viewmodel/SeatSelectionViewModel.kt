@@ -8,7 +8,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.grapefruit.aid_android_user.presentation.view.SeatSelectionActivity
 import com.grapefruit.aid_android_user.data.dto.SeatDTO
-import com.grapefruit.aid_android_user.data.api.RetrofitBuilder
+import com.grapefruit.aid_android_user.di.NetworkModule
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -22,7 +22,7 @@ class SeatSelectionViewModel: ViewModel() {
         _seatListResponse.value = seatList
     }
 
-    private val seatService = RetrofitBuilder.seatApi
+    private val seatService = NetworkModule.seatApi
 
     fun seatList(storeId: Long, activity: SeatSelectionActivity) {
         seatService.seatList(storeId)
