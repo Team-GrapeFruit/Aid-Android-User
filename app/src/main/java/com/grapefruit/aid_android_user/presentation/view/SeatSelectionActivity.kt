@@ -1,4 +1,4 @@
-package com.grapefruit.aid_android_user.view
+package com.grapefruit.aid_android_user.presentation.view
 
 import android.content.Intent
 import android.os.Bundle
@@ -15,7 +15,7 @@ import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
 import com.grapefruit.aid_android_user.R
 import com.grapefruit.aid_android_user.databinding.ActivitySeatSelectionBinding
-import com.grapefruit.aid_android_user.viewmodel.SeatSelectionViewModel
+import com.grapefruit.aid_android_user.presentation.viewmodel.SeatSelectionViewModel
 
 class SeatSelectionActivity : AppCompatActivity() {
 
@@ -61,7 +61,7 @@ class SeatSelectionActivity : AppCompatActivity() {
                 Toast.makeText(this, "자리를 선택해주세요", Toast.LENGTH_SHORT).show()
             }
 
-            startActivity(Intent(this, Chat::class.java))
+            startActivity(Intent(this, ChatActivity::class.java))
         }
     }
 

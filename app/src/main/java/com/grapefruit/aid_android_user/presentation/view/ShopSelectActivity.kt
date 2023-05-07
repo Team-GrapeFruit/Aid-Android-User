@@ -1,18 +1,11 @@
-package com.grapefruit.aid_android_user.feature_qrcode_scan.presentation
+package com.grapefruit.aid_android_user.presentation.view
 
-import android.app.Activity
-import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
-import android.widget.Toast
 import androidx.activity.viewModels
-import androidx.lifecycle.ViewModel
-import com.grapefruit.aid_android_user.R
-import com.grapefruit.aid_android_user.databinding.ActivityQrscanBinding
 import com.grapefruit.aid_android_user.databinding.ActivityShopSelectBinding
-import com.grapefruit.aid_android_user.feature_qrcode_scan.data.DTO.ShopDetail
-import com.grapefruit.aid_android_user.feature_qrcode_scan.presentation.vm.QrcodeViewModel
+import com.grapefruit.aid_android_user.presentation.viewmodel.QrcodeViewModel
 
 class ShopSelectActivity : AppCompatActivity() {
     private val viewModel by viewModels<QrcodeViewModel>()
