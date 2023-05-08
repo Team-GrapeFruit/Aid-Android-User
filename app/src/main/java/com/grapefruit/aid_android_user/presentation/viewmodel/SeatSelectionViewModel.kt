@@ -7,7 +7,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.grapefruit.aid_android_user.presentation.view.SeatSelectionActivity
-import com.grapefruit.aid_android_user.data.dto.SeatDTO
+import com.grapefruit.aid_android_user.data.dto.SeatData
 import com.grapefruit.aid_android_user.di.NetworkModule
 import retrofit2.Call
 import retrofit2.Callback
@@ -15,10 +15,10 @@ import retrofit2.Response
 
 class SeatSelectionViewModel: ViewModel() {
 
-    private val _seatListResponse = MutableLiveData<List<SeatDTO>>()
-    val seatListResponse: LiveData<List<SeatDTO>> get() = _seatListResponse
+    private val _seatListResponse = MutableLiveData<List<SeatData>>()
+    val seatListResponse: LiveData<List<SeatData>> get() = _seatListResponse
 
-    fun seatListResponse(seatList: List<SeatDTO>){
+    fun seatListResponse(seatList: List<SeatData>){
         _seatListResponse.value = seatList
     }
 
@@ -26,10 +26,10 @@ class SeatSelectionViewModel: ViewModel() {
 
     fun seatList(storeId: Long, activity: SeatSelectionActivity) {
         seatService.seatList(storeId)
-            .enqueue(object : Callback<List<SeatDTO>> {
+            .enqueue(object : Callback<List<SeatData>> {
                 override fun onResponse(
-                    call: Call<List<SeatDTO>>,
-                    response: Response<List<SeatDTO>>
+                    call: Call<List<SeatData>>,
+                    response: Response<List<SeatData>>
                 ) {
                     if (response.isSuccessful){
                         val seatList = response.body()
@@ -42,7 +42,7 @@ class SeatSelectionViewModel: ViewModel() {
                     }
                 }
 
-                override fun onFailure(call: Call<List<SeatDTO>>, t: Throwable) {
+                override fun onFailure(call: Call<List<SeatData>>, t: Throwable) {
                     Log.d("통신 실패",t.message.toString())
                 }
             })

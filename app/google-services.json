@@ -1,33 +1,34 @@
 {
   "project_info": {
-    "project_number": "129426067848",
-    "project_id": "aid-chat",
-    "storage_bucket": "aid-chat.appspot.com"
+    "project_number": "942808756814",
+    "firebase_url": "https://aid-user-chat-default-rtdb.firebaseio.com",
+    "project_id": "aid-user-chat",
+    "storage_bucket": "aid-user-chat.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:129426067848:android:9b8048c2bbbf95cf9bea3d",
+        "mobilesdk_app_id": "1:942808756814:android:4ad68b18b060bfa252c91f",
         "android_client_info": {
           "package_name": "com.grapefruit.aid_android_user"
         }
       },
       "oauth_client": [
         {
-          "client_id": "129426067848-oa0v8enob9cifnug1qu508mkbm9afnft.apps.googleusercontent.com",
+          "client_id": "942808756814-8k1atsepl76e60ptii0f0vs0sc5iu7d1.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyD4B7ylTc-Q5AMzEutzWZ9jEXisV0lhksU"
+          "current_key": "AIzaSyBhd7FTuxcn3yqMw7PnewSn_b9p3Nx9vdo"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "129426067848-oa0v8enob9cifnug1qu508mkbm9afnft.apps.googleusercontent.com",
+              "client_id": "942808756814-8k1atsepl76e60ptii0f0vs0sc5iu7d1.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

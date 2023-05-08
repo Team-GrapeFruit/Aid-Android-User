@@ -2,7 +2,7 @@ package com.grapefruit.aid_android_user.di
 
 import com.grapefruit.aid_android_user.data.api.SeatApi
 import com.grapefruit.aid_android_user.data.api.StoreApi
-import com.grapefruit.aid_android_user.data.dto.ShopDetail
+import com.grapefruit.aid_android_user.data.dto.ShopDetailData
 import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
@@ -17,7 +17,7 @@ object NetworkModule {
 
     val storeApi: StoreApi = retrofit.create(StoreApi::class.java)
 
-    suspend fun searchStore(storeId: String): Response<ShopDetail> {
+    suspend fun searchStore(storeId: String): Response<ShopDetailData> {
         return storeApi.searchStore(storeId)
     }
     val seatApi: SeatApi by lazy {
