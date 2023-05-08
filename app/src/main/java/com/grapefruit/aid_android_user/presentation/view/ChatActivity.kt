@@ -26,6 +26,7 @@ class ChatActivity : AppCompatActivity() {
         val message = binding.editText.text.toString()
         if(message.isNotEmpty()){
             viewModel.sendMsg(message)
+            viewModel.getMsg()
         }
     }
 }

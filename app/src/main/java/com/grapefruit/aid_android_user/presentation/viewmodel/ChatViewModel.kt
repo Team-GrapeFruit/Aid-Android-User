@@ -1,8 +1,13 @@
 package com.grapefruit.aid_android_user.presentation.viewmodel
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
+import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.ValueEventListener
 import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
 import com.grapefruit.aid_android_user.data.dto.ShopDetailData
@@ -14,9 +19,8 @@ class ChatViewModel: ViewModel() {
         get() = _chatInfo
 
     fun sendMsg(msg: String){
-        val database = Firebase.database
-        val myRef = database.getReference("message")
-        myRef.setValue(msg)
+        val database = FirebaseDatabase.getInstance()
+        val myRef = database.getReference()
+        myRef.child("message").push().setValue(msg)
     }
-
 }
