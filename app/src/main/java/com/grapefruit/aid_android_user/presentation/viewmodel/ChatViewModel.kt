@@ -18,26 +18,28 @@ import java.util.Locale
 
 class ChatViewModel: ViewModel() {
     private var _chatInfo = MutableLiveData<ShopDetailData>()
+    private var chatCnt: Int = 0
 
     val ChatInfo: LiveData<ShopDetailData>
         get() = _chatInfo
 
     fun sendMessage(message: String){
         val database = FirebaseDatabase.getInstance()
-        val myRef = database.getReference()
+        val myRef = database.getReference().child("message")
         val time = getTime()
         val dataInput = ChatData(
             msg = message,
             time = time
         )
-        myRef.child("message").child("user").push().setValue(dataInput)
+        myRef.child("user").child("message " + (++chatCnt) ).setValue(dataInput)
+        Log.d("msg",chatCnt.toString())
     }
     fun getTime(): String{
         val current = LocalDateTime.now()
         val formatter = DateTimeFormatter.ofPattern("a h:mm",Locale.KOREA)
         val formatted = current.format(formatter)
 
-        Log.d("timee",current.toString())
+        Log.d("timee",formatted.toString())
         return formatted.toString()
     }
 }
