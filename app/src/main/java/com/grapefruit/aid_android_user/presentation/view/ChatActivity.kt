@@ -3,10 +3,6 @@ package com.grapefruit.aid_android_user.presentation.view
 import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
-import androidx.lifecycle.ViewModel
-import com.google.firebase.database.ktx.database
-import com.google.firebase.ktx.Firebase
-import com.grapefruit.aid_android_user.R
 import com.grapefruit.aid_android_user.databinding.ActivityChatBinding
 import com.grapefruit.aid_android_user.presentation.viewmodel.ChatViewModel
 
@@ -25,8 +21,7 @@ class ChatActivity : AppCompatActivity() {
     fun putMessage() {       //메시지 전송
         val message = binding.editText.text.toString()
         if(message.isNotEmpty()){
-            viewModel.sendMsg(message)
-            viewModel.getMsg()
+            viewModel.sendMessage(message)
         }
     }
 }
