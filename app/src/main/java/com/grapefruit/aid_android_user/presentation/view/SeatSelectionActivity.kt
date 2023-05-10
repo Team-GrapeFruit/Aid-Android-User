@@ -7,12 +7,12 @@ import android.view.Gravity
 import android.view.View
 import android.widget.TextView
 import android.widget.Toast
+import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.core.content.res.ResourcesCompat
 import androidx.core.view.ViewCompat
 import androidx.databinding.DataBindingUtil
-import androidx.lifecycle.ViewModelProvider
 import com.grapefruit.aid_android_user.R
 import com.grapefruit.aid_android_user.databinding.ActivitySeatSelectionBinding
 import com.grapefruit.aid_android_user.presentation.viewmodel.SeatSelectionViewModel
@@ -20,21 +20,19 @@ import com.grapefruit.aid_android_user.presentation.viewmodel.SeatSelectionViewM
 class SeatSelectionActivity : AppCompatActivity() {
 
     lateinit var binding: ActivitySeatSelectionBinding
-    lateinit var viewModel: SeatSelectionViewModel
-    val storeId = 1L
+    private val viewModel by viewModels<SeatSelectionViewModel>()
+    var storeId = 0L
     var seatId: Long = 0
-    var seatState = 1
+    var seatState = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        viewModel =
-            ViewModelProvider(this@SeatSelectionActivity)[SeatSelectionViewModel::class.java]
-
-        viewModel.seatList(storeId, this)
+        storeId = intent.getLongExtra("storeId", 0)
+        viewModel.seatList(storeId)
 
         binding = DataBindingUtil.setContentView(this, R.layout.activity_seat_selection)
-        binding.activity = this@SeatSelectionActivity
+        binding.activity = this
 
         viewModel.seatListResponse.observe(this) {
             with(binding) {
@@ -45,7 +43,7 @@ class SeatSelectionActivity : AppCompatActivity() {
         }
 
         binding.btnBack.setOnClickListener {
-
+            startActivity(Intent(this, QrScanActivity::class.java))
         }
 
         binding.seatSelectionBtn.setOnClickListener {
@@ -68,7 +66,7 @@ class SeatSelectionActivity : AppCompatActivity() {
     override fun onResume() {
         super.onResume()
 
-        viewModel.seatList(storeId, this)
+        viewModel.seatList(storeId)
     }
 
     private fun createTable(index: Int): View {
@@ -78,7 +76,7 @@ class SeatSelectionActivity : AppCompatActivity() {
         table.height = heightSize(seatList.customerNum)
         table.x = seatList.locationX
         table.y = seatList.locationY
-        table.text = "" + seatList.seatNum + "번\n" + seatList.customerNum + "인용"
+        table.text = getString(R.string.table, seatList.seatNum.toString(), seatList.customerNum.toString())
         table.setTextColor(
             ContextCompat.getColor(
                 this@SeatSelectionActivity,
@@ -132,7 +130,7 @@ class SeatSelectionActivity : AppCompatActivity() {
             // 자리 사용 가능
             if (seatList.enabled == true) {
                 seatState = 0
-                // 자리 사용 불가능
+            // 자리 사용 불가능
             } else {
                 seatState = 1
             }
@@ -149,7 +147,7 @@ class SeatSelectionActivity : AppCompatActivity() {
 
                 seatId = 0
                 seatState = 0
-                // 자리 사용 불가능
+            // 자리 사용 불가능
             } else {
                 seat.setTextColor(ContextCompat.getColor(this, R.color.light_pink))
                 seat.setBackgroundResource(R.drawable.seat_use_background)

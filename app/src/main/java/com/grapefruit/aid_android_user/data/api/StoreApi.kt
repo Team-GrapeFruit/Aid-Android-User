@@ -7,5 +7,5 @@ import retrofit2.http.Path
 
 interface StoreApi {
     @GET("store/{storeId}")
-    suspend fun searchStore(@Path("storeId") storeId: String): Response<ShopDetail>
+    suspend fun searchStore(@Path("storeId") storeId: Long): Response<ShopDetail>
 }
