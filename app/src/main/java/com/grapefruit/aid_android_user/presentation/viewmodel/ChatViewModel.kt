@@ -35,7 +35,7 @@ class ChatViewModel: ViewModel() {
             .child("message" + chatCnt )
             .setValue(dataInput)
         Log.d("msg",chatCnt.toString())
-        //getMessage()
+        getMessage()
     }
     fun getMessage(){
         val database = FirebaseDatabase.getInstance().getReference()
