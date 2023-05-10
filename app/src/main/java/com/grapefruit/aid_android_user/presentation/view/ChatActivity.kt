@@ -1,6 +1,7 @@
 package com.grapefruit.aid_android_user.presentation.view
 
 import android.os.Bundle
+import android.util.Log
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import com.grapefruit.aid_android_user.databinding.ActivityChatBinding
@@ -16,6 +17,9 @@ class ChatActivity : AppCompatActivity() {
 
         binding.btnSend.setOnClickListener {
             putMessage()
+        }
+        viewModel.ChatInfo.observe(this){
+            Log.d("testt_a",it.toString())
         }
     }
     fun putMessage() {       //메시지 전송
