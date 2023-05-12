@@ -24,22 +24,21 @@ class ChatActivity : AppCompatActivity() {
         binding = ActivityChatBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        adapter = ChatAdapter(chatList, isUserList)
-        val recyclerView: RecyclerView = binding.chatView
-        val layoutManager = LinearLayoutManager(this)
-        recyclerView.layoutManager = layoutManager
-        recyclerView.adapter = adapter
+        buildAdapter()
 
         binding.btnSend.setOnClickListener {
             putMessage()
         }
+
         viewModel.isUser.observe(this){
             if(it.isNotEmpty()) {
                 isUser = it
             }
         }
-        viewModel.ChatInfo.observe(this){
+
+        viewModel.chatInfo.observe(this){
             if(isUser != null && it != null) {
+
                 chatList.add(it)
                 isUserList.add(isUser!!)
 
@@ -48,13 +47,20 @@ class ChatActivity : AppCompatActivity() {
                 adapter.notifyDataSetChanged()
             }
         }
+
     }
-    fun putMessage() {       //메시지 전송
+    private fun putMessage() {       //메시지 전송
         val message = binding.editText.text.toString()
         if(message.isNotEmpty()){
             viewModel.sendMessage(message)
-
         }
+    }
+    private fun buildAdapter(){
+        adapter = ChatAdapter(chatList, isUserList)
+        val recyclerView: RecyclerView = binding.chatView
+        val layoutManager = LinearLayoutManager(this)
+        recyclerView.layoutManager = layoutManager
+        recyclerView.adapter = adapter
     }
 
 }

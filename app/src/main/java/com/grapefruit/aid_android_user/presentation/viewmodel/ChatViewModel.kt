@@ -1,7 +1,5 @@
 package com.grapefruit.aid_android_user.presentation.viewmodel
 
-import android.util.Log
-import android.widget.Toast
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -16,7 +14,7 @@ class ChatViewModel: ViewModel() {
     private var _isUser = MutableLiveData<String>()
     private var chatCnt: Int = 0
 
-    val ChatInfo: LiveData<ChatData>
+    val chatInfo: LiveData<ChatData>
         get() = _chatInfo
     val isUser: LiveData<String>
         get() = _isUser
@@ -39,6 +37,7 @@ class ChatViewModel: ViewModel() {
             .child("user")
             .child("message" + chatCnt )
             .setValue(dataInput)
+
         getMessage()
     }
     fun getMessage() {
@@ -56,9 +55,7 @@ class ChatViewModel: ViewModel() {
                 }
             }
 
-            override fun onCancelled(error: DatabaseError) {
-
-            }
+            override fun onCancelled(error: DatabaseError) {}
         }
 
         query.addListenerForSingleValueEvent(object : ValueEventListener {
@@ -66,9 +63,7 @@ class ChatViewModel: ViewModel() {
                 query.addValueEventListener(valueEventListener)
             }
 
-            override fun onCancelled(databaseError: DatabaseError) {
-
-            }
+            override fun onCancelled(databaseError: DatabaseError) {}
         })
     }
 
