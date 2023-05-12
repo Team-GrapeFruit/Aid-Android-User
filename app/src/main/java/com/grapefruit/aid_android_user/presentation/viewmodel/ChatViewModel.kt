@@ -39,7 +39,6 @@ class ChatViewModel: ViewModel() {
             .child("user")
             .child("message" + chatCnt )
             .setValue(dataInput)
-        Log.d("msg",chatCnt.toString())
         getMessage()
     }
     fun getMessage() {
@@ -78,7 +77,6 @@ class ChatViewModel: ViewModel() {
         val formatter = DateTimeFormatter.ofPattern("a h:mm",Locale.KOREA)
         val formatted = current.format(formatter)
 
-        Log.d("timee",formatted.toString())
         return formatted.toString()
     }
 }
