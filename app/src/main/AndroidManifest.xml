@@ -2,9 +2,12 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
+<<<<<<< HEAD
+=======
     <uses-permission android:name="android.permission.CAMERA"/>
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+>>>>>>> 15dfaf2a329393a63c496c87227a558432ecef59
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
@@ -17,6 +20,19 @@
         android:theme="@style/Theme.AidAndroidUser"
         tools:targetApi="31">
         <activity
+<<<<<<< HEAD
+            android:name=".feature_menu.presentation.ShoppingBasketPageActivity"
+            android:exported="false" />
+        <activity
+            android:name=".feature_menu.presentation.MenuDetailPageActivity"
+            android:exported="false" />
+        <activity
+            android:name=".view.chat.ChatAcitivity"
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name=".feature_menu.presentation.MenuPageActivity"
+=======
             android:name=".presentation.view.ChatActivity"
             android:exported="false"/>
         <activity
@@ -33,6 +49,7 @@
             android:exported="false"/>
         <activity
             android:name=".presentation.view.MainActivity"
+>>>>>>> 15dfaf2a329393a63c496c87227a558432ecef59
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -40,6 +57,20 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+<<<<<<< HEAD
+        <activity
+            android:name=".view.seatselection.SeatSelectionActivity"
+            android:exported="false" />
+        <activity
+            android:name=".MainActivity"
+            android:exported="true" >
+        </activity>
+
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
+=======
+>>>>>>> 15dfaf2a329393a63c496c87227a558432ecef59
     </application>
 
 </manifest>

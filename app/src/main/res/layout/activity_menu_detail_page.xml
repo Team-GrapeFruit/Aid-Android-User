@@ -247,7 +247,7 @@
 
         <!-- 몇원 -->
         <TextView
-            android:id="@+id/num_price"
+            android:id="@+id/cost"
             android:layout_width="0dp"
             android:layout_height="0dp"
             app:layout_constraintStart_toStartOf="@id/num_price_guideline_start"
@@ -497,6 +497,7 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <!-- 장바구니 담기 버튼 -->
+
     <Button
         android:id="@+id/cart_btn"
         android:layout_width="0dp"
@@ -505,10 +506,12 @@
         android:text="@string/add_shopping_basket"
         android:textColor="#ffffff"
         android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="@id/cart_btn_guideline_bottom"
         app:layout_constraintEnd_toEndOf="@id/cart_btn_guideline_end"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@id/cart_btn_guideline_start"
         app:layout_constraintTop_toTopOf="@id/cart_btn_guideline_top"
-        app:layout_constraintBottom_toBottomOf="@id/cart_btn_guideline_bottom"/>
+        app:layout_constraintVertical_bias="0.0" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/cart_btn_guideline_top"

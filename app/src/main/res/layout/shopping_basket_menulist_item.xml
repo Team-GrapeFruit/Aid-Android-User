@@ -80,7 +80,7 @@
 
     <!-- 가격 -->
     <TextView
-        android:id="@+id/price"
+        android:id="@+id/cost"
         android:layout_width="0dp"
         android:layout_height="0dp"
         app:layout_constraintStart_toStartOf="@id/price_guideline_start"
@@ -191,7 +191,7 @@
         app:layout_constraintGuide_percent="0.77"/>
 
     <!-- 수량 변경 버튼 -->
-    <Button
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/change_quantity_btn"
         android:layout_width="0dp"
         android:layout_height="0dp"
@@ -200,8 +200,6 @@
         app:layout_constraintTop_toTopOf="@id/change_quantity_btn_guideline_top"
         app:layout_constraintBottom_toBottomOf="@id/change_quantity_btn_guideline_bottom"
         android:background="@drawable/select_menu_option_background"
-        android:text="1"
-        android:textSize="10sp"
         android:gravity="center"/>
 
     <androidx.constraintlayout.widget.Guideline
@@ -228,6 +226,44 @@
         android:layout_height="0.1dp"
         android:orientation="vertical"
         app:layout_constraintGuide_percent="0.97"/>
+
+    <!-- 수량 갯수 -->
+    <TextView
+        android:id="@+id/quantity"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintStart_toStartOf="@id/quantity_guideline_start"
+        app:layout_constraintEnd_toEndOf="@id/quantity_guideline_end"
+        app:layout_constraintTop_toTopOf="@id/quantity_guideline_top"
+        app:layout_constraintBottom_toBottomOf="@id/quantity_guideline_bottom"
+        android:text="1"
+        android:textSize="12sp"
+        android:textColor="@color/black"/>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/quantity_guideline_top"
+        android:layout_width="match_parent"
+        android:layout_height="0.1dp"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.51"/>
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/quantity_guideline_bottom"
+        android:layout_width="match_parent"
+        android:layout_height="0.1dp"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.68"/>
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/quantity_guideline_start"
+        android:layout_width="match_parent"
+        android:layout_height="0.1dp"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.873"/>
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/quantity_guideline_end"
+        android:layout_width="match_parent"
+        android:layout_height="0.1dp"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.895"/>
 
     <!-- 플러스 버튼 -->
     <ImageView
