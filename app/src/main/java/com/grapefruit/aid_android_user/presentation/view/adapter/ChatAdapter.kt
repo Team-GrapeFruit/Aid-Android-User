@@ -61,9 +61,7 @@ class ChatAdapter(private val dataSet: MutableList<ChatData>, private val isUser
                 val aiChatHolder = holder as AiChatViewHolder
                 aiChatHolder.bind(data)
             }
-            else ->{
-
-            }
+            else ->{}
         }
     }
 
@@ -81,8 +79,6 @@ class ChatAdapter(private val dataSet: MutableList<ChatData>, private val isUser
             else -> VIEW_TYPE_NULL
         }
     }
-
-
 
     companion object {
         private const val VIEW_TYPE_NULL = -1

@@ -43,6 +43,7 @@ class ChatActivity : AppCompatActivity() {
                 Log.d("Activity_chatList",chatList.toString())
                 Log.d("Activity_isUser", isUserList.toString())
                 adapter.notifyDataSetChanged()
+                binding.chatView.scrollToPosition(adapter.itemCount-1)
             }
         }
 
@@ -62,6 +63,7 @@ class ChatActivity : AppCompatActivity() {
         val layoutManager = LinearLayoutManager(this)
         recyclerView.layoutManager = layoutManager
         recyclerView.adapter = adapter
+
     }
 
 }
