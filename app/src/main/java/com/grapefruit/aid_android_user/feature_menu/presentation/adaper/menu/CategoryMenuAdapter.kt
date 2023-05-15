@@ -1,7 +1,6 @@
 package com.grapefruit.aid_android_user.feature_menu.presentation.adaper.menu
 
 import android.content.Intent
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.ImageView
@@ -10,13 +9,12 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.grapefruit.aid_android_user.R
 import com.grapefruit.aid_android_user.databinding.MenuItemListBinding
-import com.grapefruit.aid_android_user.feature_menu.data.dto.CheckMenuDTO
+import com.grapefruit.aid_android_user.feature_menu.data.dto.CategoryDTO
 import com.grapefruit.aid_android_user.feature_menu.data.dto.MenuDTO
 import com.grapefruit.aid_android_user.feature_menu.presentation.MenuDetailPageActivity
 
-class MenuAdapter(val itemList: CheckMenuDTO) :
-    RecyclerView.Adapter<MenuAdapter.Holder>() {
-
+class CategoryMenuAdapter(val itemList: CategoryDTO) :
+    RecyclerView.Adapter<CategoryMenuAdapter.Holder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): Holder {
         val binding =
             MenuItemListBinding.inflate(LayoutInflater.from(parent.context), parent, false)
@@ -24,18 +22,11 @@ class MenuAdapter(val itemList: CheckMenuDTO) :
     }
 
     override fun getItemCount(): Int {
-        Log.d("Adapter-menu-size", itemList.singleMenuResponse.size.toString())
-        return itemList.singleMenuResponse.size
+        return itemList.categoryResponse.size
     }
 
     override fun onBindViewHolder(holder: Holder, position: Int) {
-        val menu = itemList.singleMenuResponse[position]
-        val context = holder.binding.root.context
-        holder.itemView.setOnClickListener {
-            val intent =
-                Intent(context, MenuDetailPageActivity::class.java)
-            context.startActivity(intent)
-        }
+        val menu = itemList.categoryResponse[position]
         holder.bind(menu)
     }
 
@@ -44,12 +35,12 @@ class MenuAdapter(val itemList: CheckMenuDTO) :
 
         private val context = binding.root.context
 
-        /*init {
+        init {
             binding.root.setOnClickListener {
                 val intent = Intent(context, MenuDetailPageActivity::class.java)
                 context.startActivity(intent)
             }
-        }*/
+        }
 
         private val menuName = itemView.findViewById<TextView>(R.id.menu_name)
         private val cost = itemView.findViewById<TextView>(R.id.cost)

@@ -12,9 +12,13 @@ import com.grapefruit.aid_android_user.R
 import com.grapefruit.aid_android_user.databinding.ShoppingBasketMenulistItemBinding
 import com.grapefruit.aid_android_user.feature_menu.data.dto.PurchaseDTO
 import com.grapefruit.aid_android_user.feature_menu.presentation.MenuPageActivity
+import com.grapefruit.aid_android_user.feature_menu.presentation.ShoppingBasketPageActivity
 import com.grapefruit.aid_android_user.feature_menu.presentation.viewmodel.MenuPageViewModel
 
-class PurchaseAdapter(val itemList: List<PurchaseDTO>) :
+class PurchaseAdapter(
+    val itemList: ArrayList<PurchaseDTO>,
+    val activity: ShoppingBasketPageActivity,
+) :
     RecyclerView.Adapter<PurchaseAdapter.Holder>() {
 
     private val viewModel = MenuPageViewModel()
@@ -29,7 +33,8 @@ class PurchaseAdapter(val itemList: List<PurchaseDTO>) :
     }
 
     override fun getItemCount(): Int {
-        return itemList.count()
+        Log.d("Adapter-itemList-size", itemList.size.toString())
+        return itemList.size
     }
 
     override fun onBindViewHolder(holder: Holder, position: Int) {
@@ -38,21 +43,27 @@ class PurchaseAdapter(val itemList: List<PurchaseDTO>) :
         with(holder) {
             with(binding) {
                 deleteBtn.setOnClickListener {
-                    viewModel.deleteMenuRoad(1)
-                    notifyItemRemoved(position)
+                    activity.deleteItem(position)
+//                    viewModel.deleteMenuRoad(position.plus(1).toLong())
+//                    Log.d("delete-menu", position.toString())
+//                    notifyItemRemoved(position)
+                    viewModel.purchaseListRoad(1L)
+                    // notifyDataSetChanged()
+                }
+                plusBtn.setOnClickListener {
+                    activity.quantityControl(position, purchase.quantity+1)
+                    /*++amount
+                    quantity.text = .toString()
+                    Log.d("plus", amount.toString())*/
+                    viewModel.purchaseListRoad(1L)
                     notifyDataSetChanged()
                 }
-                /*plusBtn.setOnClickListener {
-                    val _quantity = quantity.text.toString().toInt() + 1
-                    quantity.text = _quantity.toString()
-                    viewModel.quantityControlRoad(1, 1)
-                    binding.quantity.text = quantity.toString()
-                    notifyDataSetChanged()
-                }*/
                 minusBtn.setOnClickListener {
-                    viewModel.quantityControlRoad(1, 1)
-
-                    binding.quantity.text = quantity.toString()
+                    activity.quantityControl(position, purchase.quantity-1)
+                    /*--amount
+                    quantity.text = amount.toString()
+                    Log.d("minus", amount.toString())*/
+                    viewModel.purchaseListRoad(1L)
                     notifyDataSetChanged()
                 }
             }
@@ -71,13 +82,6 @@ class PurchaseAdapter(val itemList: List<PurchaseDTO>) :
                     val intent = Intent(context, MenuPageActivity::class.java)
                     context.startActivity(intent)
                 }
-                plusBtn.setOnClickListener {
-                    val _quantity = quantity.text.toString().toInt() + 1
-                    Log.d("quantity", _quantity.toString())
-                    quantity.text = _quantity.toString()
-
-                    viewModel.quantityControlRoad(1, 1)
-                }
             }
         }
 
@@ -87,11 +91,12 @@ class PurchaseAdapter(val itemList: List<PurchaseDTO>) :
         private val menuImg = itemView.findViewById<ImageView>(R.id.menu_image)
 
         fun bind(purchaseDTO: PurchaseDTO) {
+            Log.d("adapter", purchaseDTO.toString())
             menuName.text = purchaseDTO.purchaseMenu.menuName
             cost.text = purchaseDTO.purchaseMenu.cost.toString() + "원"
             quantity.text = purchaseDTO.quantity.toString()
             Glide.with(menuImg)
-                .load(purchaseDTO.purchaseMenu.menuImgUrl)
+                .load(purchaseDTO.purchaseMenu.menuImgURL)
                 .into(binding.menuImage)
         }
     }

@@ -24,9 +24,6 @@
             android:exported="false"
             android:windowSoftInputMode="adjustResize" />
         <activity
-            android:name=".view.seatselection.SeatSelectionActivity"
-            android:exported="false" />
-        <activity
             android:name=".feature_menu.presentation.MenuPageActivity"
             android:exported="true">
             <intent-filter>
@@ -36,8 +33,12 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".MainActivity"
+            android:name=".view.seatselection.SeatSelectionActivity"
             android:exported="false" />
+        <activity
+            android:name=".MainActivity"
+            android:exported="true" >
+        </activity>
 
         <meta-data
             android:name="preloaded_fonts"

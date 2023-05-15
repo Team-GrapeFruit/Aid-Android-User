@@ -5,22 +5,23 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.grapefruit.aid_android_user.feature_menu.data.dto.MenuDTO
-import com.grapefruit.aid_android_user.feature_menu.data.dto.MenuDetailDTO
-import com.grapefruit.aid_android_user.feature_menu.data.dto.PurchaseDTO
-import com.grapefruit.aid_android_user.feature_menu.data.dto.PurchaseSeatDTO
+import com.grapefruit.aid_android_user.feature_menu.data.dto.*
 import com.grapefruit.aid_android_user.feature_menu.data.retrofit.RetrofitBuilder
 import kotlinx.coroutines.launch
 
 class MenuPageViewModel : ViewModel() {
-
-    private val _menuListResponse = MutableLiveData<List<MenuDTO>>()
+    private val _menuListResponse = MutableLiveData<CheckMenuDTO>()
+    private val _menuByCategoryResponse = MutableLiveData<CategoryDTO>()
     private val _menuDetailResponse = MutableLiveData<MenuDetailDTO>()
     private val _purchaseListResponse = MutableLiveData<List<PurchaseDTO>>()
-    private val _purchaseResponse = MutableLiveData<Unit>()
+    private val _menuListReqDto = arrayListOf<PurchaseMenuDTO>()
+    private val _menuInfoList = arrayListOf<PurchaseDTO>()
 
-    val menuListResponse: LiveData<List<MenuDTO>>
+    val menuListResponse: LiveData<CheckMenuDTO>
         get() = _menuListResponse
+
+    val menuByCategoryResponse: LiveData<CategoryDTO>
+        get() = _menuByCategoryResponse
 
     val menuDetailResponse: LiveData<MenuDetailDTO>
         get() = _menuDetailResponse
@@ -28,17 +29,20 @@ class MenuPageViewModel : ViewModel() {
     val purchaseListResponse: LiveData<List<PurchaseDTO>>
         get() = _purchaseListResponse
 
-    val purchaseResponse: LiveData<Unit>
-        get() = _purchaseResponse
+    val menuListReqDto: ArrayList<PurchaseMenuDTO>
+        get() = _menuListReqDto
+
+    val menuInfoList: ArrayList<PurchaseDTO>
+        get() = _menuInfoList
 
     fun menuListRoad(storeId: Long) {
         viewModelScope.launch {
             val response = RetrofitBuilder.menuList(storeId)
-            Log.d("detail-in", response.body().toString())
+            Log.d("detail-in-menulist", response.code().toString())
 
             if (response.code() == 200) {
                 _menuListResponse.value = response.body()
-                Log.d("detail-in", menuListResponse.value.toString())
+                Log.d("detail-in-menulist", response.body().toString())
             }
         }
     }
@@ -49,14 +53,10 @@ class MenuPageViewModel : ViewModel() {
             Log.d("detail-in", response.body().toString())
 
             if (response.code() == 200) {
-                _menuListResponse.value = response.body()
-                Log.d("detail-in", menuListResponse.value.toString())
+                _menuByCategoryResponse.value = response.body()
+                Log.d("detail-in", menuByCategoryResponse.value.toString())
             }
         }
-    }
-
-    fun getmenuList(): List<MenuDTO>? {
-        return menuListResponse.value
     }
 
     fun menuDetailRoad(menuId: Long) {
@@ -71,37 +71,48 @@ class MenuPageViewModel : ViewModel() {
         }
     }
 
-    fun purchaseSeatRoad(seatId: Long, menuId: List<PurchaseSeatDTO>) {
-        viewModelScope.launch {
-            val response = RetrofitBuilder.purchaseSeat(seatId, menuId)
-            Log.d("detail-in", response.body().toString())
+    /*fun addMenuToBasket(menuInfo: PurchaseMenuDTO) {
+        _menuListReqDto.add(menuInfo)
+    }
 
-            if(response.isSuccessful) {
-                _purchaseResponse.value = response.body()
-                Log.d("detail-in", purchaseResponse.value.toString())
-            }
+    fun addMenuToMenuInfoList(purchaseId: Long, quantity: Long, menuInfo: MenuDTO) {
+        _menuInfoList.add(
+            PurchaseDTO(
+                purchaseId,
+                quantity,
+                menuInfo
+            )
+        )
+    }
+
+    fun order(seatId: Long) {
+        viewModelScope.launch {
+            val response =
+                RetrofitBuilder.purchaseSeat(seatId, PurchaseSeatDTO(menuListReq = _menuListReqDto))
+            Log.d("order", response.body().toString())
+        }
+    }*/
+
+    fun orderMenuToPurchaseRoad(seatId: Long, menuId: Long, quantity: Long) {
+        viewModelScope.launch {
+            /*val response =
+                RetrofitBuilder.orderMenuToPurchase(seatId, )*/
         }
     }
 
     fun deleteMenuRoad(purchaseId: Long) {
         viewModelScope.launch {
             val response = RetrofitBuilder.deleteMenu(purchaseId)
-
-            if(response.isSuccessful) {
-                _purchaseResponse.value = response.body()
-            }
+            Log.d("detail-delete", response.body().toString())
         }
     }
 
     fun quantityControlRoad(purchaseId: Long, quantity: Long) {
         viewModelScope.launch {
-            val response = RetrofitBuilder.quantityControl(purchaseId, quantity)
-            Log.d("detail-in", purchaseResponse.value.toString())
-
-            if(response.isSuccessful) {
-                _purchaseResponse.value = response.body()
-                Log.d("detail-in",purchaseResponse.value.toString())
-            }
+            val response = RetrofitBuilder.quantityControl(purchaseId, QuantityDTO(quantity))
+            Log.d("ddd", response.code().toString())
+            Log.d("testt", purchaseId.toString())
+            Log.d("testt", quantity.toString())
         }
     }
 
@@ -112,7 +123,7 @@ class MenuPageViewModel : ViewModel() {
 
             if (response.code() == 200) {
                 _purchaseListResponse.value = response.body()
-                Log.d("detail-in",purchaseListResponse.value.toString())
+                Log.d("detail-in", purchaseListResponse.value.toString())
             }
         }
     }

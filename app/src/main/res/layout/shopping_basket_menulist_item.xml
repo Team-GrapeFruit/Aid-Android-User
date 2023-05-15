@@ -191,7 +191,7 @@
         app:layout_constraintGuide_percent="0.77"/>
 
     <!-- 수량 변경 버튼 -->
-    <Button
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/change_quantity_btn"
         android:layout_width="0dp"
         android:layout_height="0dp"
@@ -226,7 +226,7 @@
         android:layout_height="0.1dp"
         android:orientation="vertical"
         app:layout_constraintGuide_percent="0.97"/>
-    
+
     <!-- 수량 갯수 -->
     <TextView
         android:id="@+id/quantity"

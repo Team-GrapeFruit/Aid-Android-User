@@ -227,6 +227,30 @@
         android:orientation="vertical"
         app:layout_constraintGuide_percent="0.757"/>
 
+    <!-- 구분선 -->
+    <View
+        android:id="@+id/view"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/dark_gray"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/view_guideline_top"
+        app:layout_constraintBottom_toBottomOf="@id/view_guideline_bottom"/>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/view_guideline_top"
+        android:layout_width="match_parent"
+        android:layout_height="0.1dp"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.145"/>
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/view_guideline_bottom"
+        android:layout_width="match_parent"
+        android:layout_height="0.1dp"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.147"/>
+
     <!-- 메뉴 리스트 -->
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/menu_list"

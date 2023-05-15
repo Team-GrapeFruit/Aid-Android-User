@@ -2,10 +2,8 @@ package com.grapefruit.aid_android_user.feature_menu.data.retrofit
 
 import com.grapefruit.aid_android_user.feature_menu.data.api.MenuService
 import com.grapefruit.aid_android_user.feature_menu.data.api.PurchaseService
-import com.grapefruit.aid_android_user.feature_menu.data.dto.MenuDTO
-import com.grapefruit.aid_android_user.feature_menu.data.dto.MenuDetailDTO
-import com.grapefruit.aid_android_user.feature_menu.data.dto.PurchaseDTO
-import com.grapefruit.aid_android_user.feature_menu.data.dto.PurchaseSeatDTO
+import com.grapefruit.aid_android_user.feature_menu.data.dto.*
+import okhttp3.RequestBody
 import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
@@ -24,11 +22,11 @@ object RetrofitBuilder {
         retrofit.create(MenuService::class.java)
     }
 
-    suspend fun menuList(storeId: Long): Response<List<MenuDTO>> {
+    suspend fun menuList(storeId: Long): Response<CheckMenuDTO> {
         return menuPage.menuList(storeId)
     }
 
-    suspend fun categoryMenuList(categoryId: Long): Response<List<MenuDTO>> {
+    suspend fun categoryMenuList(categoryId: Long): Response<CategoryDTO> {
         return menuPage.menuCategory(categoryId)
     }
 
@@ -40,12 +38,12 @@ object RetrofitBuilder {
         retrofit.create(PurchaseService::class.java)
     }
 
-    suspend fun purchaseSeat(seatId: Long, menuId: List<PurchaseSeatDTO>): Response<Unit> {
-        return purchasePage.purchaseSeat(seatId, menuId)
+    suspend fun orderMenuToPurchase(seatId: Long, body: List<PurchaseSeatDTO>): Response<Unit> {
+        return purchasePage.orderMenu(seatId, body)
     }
 
-    suspend fun quantityControl(purchaseId: Long, quantity: Long): Response<Unit> {
-        return purchasePage.quantityControl(purchaseId, quantity)
+    suspend fun quantityControl(purchaseId: Long, body: QuantityDTO): Response<Unit> {
+        return purchasePage.quantityControl(purchaseId, body)
     }
 
     suspend fun deleteMenu(purchaseId: Long): Response<Unit> {

@@ -40,81 +40,6 @@
         android:orientation="vertical"
         app:layout_constraintGuide_percent="0.267"/>
 
-    <!-- soldout 이미지 -->
-    <ImageView
-        android:id="@+id/sold_out_image"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        app:layout_constraintStart_toStartOf="@id/sold_out_image_guideline_start"
-        app:layout_constraintEnd_toEndOf="@id/sold_out_image_guideline_end"
-        app:layout_constraintTop_toTopOf="@id/sold_out_image_guideline_top"
-        app:layout_constraintBottom_toBottomOf="@id/sold_out_image_guideline_bottom"
-        android:background="@drawable/sold_out_image"/>
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/sold_out_image_guideline_top"
-        android:layout_width="match_parent"
-        android:layout_height="0.1dp"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.12"/>
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/sold_out_image_guideline_bottom"
-        android:layout_width="match_parent"
-        android:layout_height="0.1dp"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.889"/>
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/sold_out_image_guideline_start"
-        android:layout_width="match_parent"
-        android:layout_height="0.1dp"
-        android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.045"/>
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/sold_out_image_guideline_end"
-        android:layout_width="match_parent"
-        android:layout_height="0.1dp"
-        android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.267"/>
-
-    <!-- soldout 텍스트 -->
-    <TextView
-        android:id="@+id/sold_out_text"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        app:layout_constraintStart_toStartOf="@id/sold_out_text_guideline_start"
-        app:layout_constraintEnd_toEndOf="@id/sold_out_text_guideline_end"
-        app:layout_constraintTop_toTopOf="@id/sold_out_text_guideline_top"
-        app:layout_constraintBottom_toBottomOf="@id/sold_out_text_guideline_bottom"
-        android:text="SOLD OUT"
-        android:textSize="10sp"
-        android:textColor="@color/black"
-        android:gravity="center"/>
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/sold_out_text_guideline_top"
-        android:layout_width="match_parent"
-        android:layout_height="0.1dp"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.42"/>
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/sold_out_text_guideline_bottom"
-        android:layout_width="match_parent"
-        android:layout_height="0.1dp"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.588"/>
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/sold_out_text_guideline_start"
-        android:layout_width="match_parent"
-        android:layout_height="0.1dp"
-        android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.08"/>
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/sold_out_text_guideline_end"
-        android:layout_width="match_parent"
-        android:layout_height="0.1dp"
-        android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.23"/>
-
     <!-- 메뉴 이름 -->
     <TextView
         android:id="@+id/menu_name"
@@ -133,13 +58,13 @@
         android:layout_width="match_parent"
         android:layout_height="0.1dp"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.169"/>
+        app:layout_constraintGuide_percent="0.289"/>
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/menu_name_guideline_bottom"
         android:layout_width="match_parent"
         android:layout_height="0.1dp"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.42"/>
+        app:layout_constraintGuide_percent="0.54"/>
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/menu_name_guideline_start"
         android:layout_width="match_parent"
@@ -153,36 +78,6 @@
         android:orientation="vertical"
         app:layout_constraintGuide_percent="0.48"/>
 
-    <!-- 메뉴 설명 -->
-    <TextView
-        android:id="@+id/menu_description"
-        android:layout_width="wrap_content"
-        android:layout_height="36dp"
-        app:layout_constraintStart_toStartOf="@id/menu_description_guideline_start"
-        app:layout_constraintTop_toTopOf="@id/menu_description_guideline_top"
-        app:layout_constraintBottom_toBottomOf="@id/menu_description_guideline_bottom"
-        android:textSize="12sp"
-        android:text="메뉴 설명입니다."/>
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/menu_description_guideline_top"
-        android:layout_width="match_parent"
-        android:layout_height="0.1dp"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.4"/>
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/menu_description_guideline_bottom"
-        android:layout_width="match_parent"
-        android:layout_height="0.1dp"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.77"/>
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/menu_description_guideline_start"
-        android:layout_width="match_parent"
-        android:layout_height="0.1dp"
-        android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.29"/>
-
     <!-- 가격 -->
     <TextView
         android:id="@+id/cost"
@@ -193,21 +88,20 @@
         app:layout_constraintTop_toTopOf="@id/price_guideline_top"
         app:layout_constraintBottom_toBottomOf="@id/price_guideline_bottom"
         android:text="16,000원"
-        android:textSize="12sp"
-        android:textColor="@color/black"/>
+        android:textSize="12sp"/>
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/price_guideline_top"
         android:layout_width="match_parent"
         android:layout_height="0.1dp"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.74"/>
+        app:layout_constraintGuide_percent="0.53"/>
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/price_guideline_bottom"
         android:layout_width="match_parent"
         android:layout_height="0.1dp"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.938"/>
+        app:layout_constraintGuide_percent="0.728"/>
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/price_guideline_start"
         android:layout_width="match_parent"
@@ -220,5 +114,14 @@
         android:layout_height="0.1dp"
         android:orientation="vertical"
         app:layout_constraintGuide_percent="0.433"/>
+
+    <!-- 구분선 -->
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="100dp"
+        android:background="@color/gray4"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

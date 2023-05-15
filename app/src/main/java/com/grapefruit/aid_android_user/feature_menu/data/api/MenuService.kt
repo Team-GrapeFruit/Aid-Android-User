@@ -1,5 +1,7 @@
 package com.grapefruit.aid_android_user.feature_menu.data.api
 
+import com.grapefruit.aid_android_user.feature_menu.data.dto.CategoryDTO
+import com.grapefruit.aid_android_user.feature_menu.data.dto.CheckMenuDTO
 import com.grapefruit.aid_android_user.feature_menu.data.dto.MenuDTO
 import com.grapefruit.aid_android_user.feature_menu.data.dto.MenuDetailDTO
 import retrofit2.Response
@@ -10,7 +12,7 @@ interface MenuService {
     @GET("menu/{storeId}")
     suspend fun menuList (
         @Path("storeId") storeId: Long
-    ): Response<List<MenuDTO>>
+    ): Response<CheckMenuDTO>
 
     @GET("menu/detail/{menuId}")
     suspend fun menuDetail (
@@ -20,5 +22,5 @@ interface MenuService {
     @GET("menu/category/{categoryId}")
     suspend fun menuCategory (
         @Path("categoryId") categoryId: Long
-    ): Response<List<MenuDTO>>
+    ): Response<CategoryDTO>
 }
