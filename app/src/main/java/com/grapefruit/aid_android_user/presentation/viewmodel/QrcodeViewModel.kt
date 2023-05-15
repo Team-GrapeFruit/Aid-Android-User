@@ -24,9 +24,9 @@ class QrcodeViewModel : ViewModel() {
 
             if (response.code() == 200) {
                 _storeInfo.value = response.body()
-                Log.d("testt_a", response.body().toString())
+                Log.d("viewModel_success", response.body().toString())
             } else {
-                Log.d("testt_f", "fail")
+                Log.d("viewModel_fail", "fail")
             }
         }
     }

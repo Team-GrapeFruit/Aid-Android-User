@@ -13,7 +13,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
 
-        val intent: Intent = Intent(this@MainActivity, ChatActivity::class.java)
+        val intent: Intent = Intent(this@MainActivity, SeatSelectionActivity::class.java)
         startActivity(intent)
         finish()
     }
