@@ -1,167 +1,176 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".presentation.view.ChatActivity">
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <!-- 뒤로가기 버튼 -->
-    <ImageView
-        android:id="@+id/back_btn"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:background="@drawable/back_btn"
-        app:layout_constraintBottom_toBottomOf="@id/back_btn_guideline_bottom"
-        app:layout_constraintEnd_toEndOf="@id/back_btn_guideline_end"
-        app:layout_constraintStart_toStartOf="@id/back_btn_guideline_start"
-        app:layout_constraintTop_toTopOf="@id/back_btn_guideline_top" />
+    <data>
 
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/back_btn_guideline_top"
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="0.1dp"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_begin="30dp" />
+        android:layout_height="match_parent"
+        tools:context=".presentation.view.ChatActivity">
 
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/back_btn_guideline_bottom"
-        android:layout_width="match_parent"
-        android:layout_height="0.1dp"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_begin="46dp" />
+        <!-- 뒤로가기 버튼 -->
+        <ImageView
+            android:id="@+id/back_btn"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="@drawable/back_btn"
+            app:layout_constraintBottom_toBottomOf="@id/back_btn_guideline_bottom"
+            app:layout_constraintEnd_toEndOf="@id/back_btn_guideline_end"
+            app:layout_constraintStart_toStartOf="@id/back_btn_guideline_start"
+            app:layout_constraintTop_toTopOf="@id/back_btn_guideline_top" />
 
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/back_btn_guideline_start"
-        android:layout_width="match_parent"
-        android:layout_height="0.1dp"
-        android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.041" />
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/back_btn_guideline_top"
+            android:layout_width="match_parent"
+            android:layout_height="0.1dp"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_begin="30dp" />
 
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/back_btn_guideline_end"
-        android:layout_width="match_parent"
-        android:layout_height="0.1dp"
-        android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.086" />
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/back_btn_guideline_bottom"
+            android:layout_width="match_parent"
+            android:layout_height="0.1dp"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_begin="46dp" />
 
-    <!-- 장바구니 텍스트 -->
-    <TextView
-        android:id="@+id/store_name"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:gravity="center"
-        android:text="1번"
-        android:textColor="@color/black"
-        android:textSize="24sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@id/shopping_basket_guideline_bottom"
-        app:layout_constraintEnd_toEndOf="@id/shopping_basket_guideline_end"
-        app:layout_constraintStart_toStartOf="@id/shopping_basket_guideline_start"
-        app:layout_constraintTop_toTopOf="@id/shopping_basket_guideline_top" />
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/back_btn_guideline_start"
+            android:layout_width="match_parent"
+            android:layout_height="0.1dp"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.041" />
 
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/shopping_basket_guideline_top"
-        android:layout_width="match_parent"
-        android:layout_height="0.1dp"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_begin="20dp" />
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/back_btn_guideline_end"
+            android:layout_width="match_parent"
+            android:layout_height="0.1dp"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.086" />
 
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/shopping_basket_guideline_bottom"
-        android:layout_width="match_parent"
-        android:layout_height="0.1dp"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_begin="56dp" />
+        <!-- 장바구니 텍스트 -->
+        <TextView
+            android:id="@+id/store_name"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:gravity="center"
+            android:text="1번"
+            android:textColor="@color/black"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@id/shopping_basket_guideline_bottom"
+            app:layout_constraintEnd_toEndOf="@id/shopping_basket_guideline_end"
+            app:layout_constraintStart_toStartOf="@id/shopping_basket_guideline_start"
+            app:layout_constraintTop_toTopOf="@id/shopping_basket_guideline_top" />
 
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/shopping_basket_guideline_start"
-        android:layout_width="match_parent"
-        android:layout_height="0.1dp"
-        android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.34" />
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/shopping_basket_guideline_top"
+            android:layout_width="match_parent"
+            android:layout_height="0.1dp"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_begin="20dp" />
 
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/shopping_basket_guideline_end"
-        android:layout_width="match_parent"
-        android:layout_height="0.1dp"
-        android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.66" />
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/shopping_basket_guideline_bottom"
+            android:layout_width="match_parent"
+            android:layout_height="0.1dp"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_begin="56dp" />
 
-    <!-- 뷰 -->
-    <View
-        android:layout_marginTop="13.5dp"
-        android:id="@+id/view"
-        android:layout_width="0dp"
-        android:layout_height="1dp"
-        android:background="@color/gray"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/store_name" />
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/shopping_basket_guideline_start"
+            android:layout_width="match_parent"
+            android:layout_height="0.1dp"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.34" />
 
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/view_guideline_top"
-        android:layout_width="match_parent"
-        android:layout_height="0.1dp"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.083"/>
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/view_guideline_bottom"
-        android:layout_width="match_parent"
-        android:layout_height="0.1dp"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.085"/>
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/shopping_basket_guideline_end"
+            android:layout_width="match_parent"
+            android:layout_height="0.1dp"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.66" />
 
-    <!-- 채팅 -->
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/chat_view"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@id/chat_view_guideline_top"
-        app:layout_constraintBottom_toTopOf="@id/linear_layout"/>
+        <!-- 뷰 -->
+        <View
+            android:layout_marginTop="13.5dp"
+            android:id="@+id/view"
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:background="@color/gray"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/store_name" />
 
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/chat_view_guideline_top"
-        android:layout_width="match_parent"
-        android:layout_height="0.1dp"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_begin="66dp" />
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/view_guideline_top"
+            android:layout_width="match_parent"
+            android:layout_height="0.1dp"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.083" />
 
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/chat_view_guideline_bottom"
-        android:layout_width="match_parent"
-        android:layout_height="0.1dp"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.9346154" />
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/view_guideline_bottom"
+            android:layout_width="match_parent"
+            android:layout_height="0.1dp"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.085" />
 
-    <LinearLayout
-        android:id="@+id/linear_layout"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:background="@color/dark_gray"
-        android:orientation="horizontal"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
+        <!-- 채팅 -->
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/chat_view"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/chat_view_guideline_top"
+            app:layout_constraintBottom_toTopOf="@id/linear_layout" />
 
-        <EditText
-            android:id="@+id/edit_text"
-            android:layout_width="325dp"
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/chat_view_guideline_top"
+            android:layout_width="match_parent"
+            android:layout_height="0.1dp"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_begin="66dp" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/chat_view_guideline_bottom"
+            android:layout_width="match_parent"
+            android:layout_height="0.1dp"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.9346154" />
+        <LinearLayout
+            android:id="@+id/linear_layout"
+            android:layout_width="match_parent"
             android:layout_height="50dp"
             android:background="@color/dark_gray"
-            android:hint="@string/typing_question"
-            android:textColorHint="@color/gray2"
-            android:textSize="14sp"
-            android:textColor="@color/black"
-            android:paddingStart="16dp"/>
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
 
-        <ImageView
-            android:layout_width="20dp"
-            android:layout_height="20dp"
-            android:background="@drawable/send_btn"
-            android:layout_gravity="center"/>
+            <EditText
+                android:id="@+id/edit_text"
+                android:layout_width="325dp"
+                android:layout_height="50dp"
+                android:background="@color/dark_gray"
+                android:hint="@string/typing_question"
+                android:textColorHint="@color/gray2"
+                android:textSize="14sp"
+                android:textColor="@color/black"
+                android:paddingStart="16dp" />
 
-    </LinearLayout>
+            <ImageView
+                android:id="@+id/btn_send"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:background="@drawable/send_btn"
+                android:layout_gravity="center" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

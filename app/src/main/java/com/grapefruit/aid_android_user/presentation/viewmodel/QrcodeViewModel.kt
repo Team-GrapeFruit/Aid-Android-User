@@ -7,14 +7,14 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.grapefruit.aid_android_user.di.NetworkModule
-import com.grapefruit.aid_android_user.data.dto.ShopDetail
+import com.grapefruit.aid_android_user.data.dto.ShopDetailData
 import kotlinx.coroutines.launch
 
 
 class QrcodeViewModel : ViewModel() {
-    private var _storeInfo = MutableLiveData<ShopDetail>()
+    private var _storeInfo = MutableLiveData<ShopDetailData>()
 
-    val storeInfo: LiveData<ShopDetail>
+    val storeInfo: LiveData<ShopDetailData>
         get() = _storeInfo
 
     fun storeLoad(storeId: Long) {

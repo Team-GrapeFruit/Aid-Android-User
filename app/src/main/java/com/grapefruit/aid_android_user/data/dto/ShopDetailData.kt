@@ -2,7 +2,7 @@ package com.grapefruit.aid_android_user.data.dto
 
 import com.google.gson.annotations.SerializedName
 
-data class ShopDetail(
+data class ShopDetailData(
     @SerializedName("storeId") val storeId: Long,
     @SerializedName("storeName") val storeName: String,
     @SerializedName("information") val information: String,
