@@ -27,7 +27,7 @@ class ChatViewModel: ViewModel() {
         val dataInput = ChatData(
             message = message,
             time = time,
-            messageNum = (++chatCnt).toString()
+            messageNum = (++chatCnt).toString(),
         )
 
         _isUser.value = "user"

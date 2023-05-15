@@ -1,3 +1,5 @@
+package com.grapefruit.aid_android_user.presentation.view.adapter
+
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -6,9 +8,8 @@ import com.grapefruit.aid_android_user.data.dto.ChatData
 import com.grapefruit.aid_android_user.databinding.ReciveMessageItemListBinding
 import com.grapefruit.aid_android_user.databinding.SendMessageBinding
 
-class ChatAdapter(val dataSet: MutableList<ChatData>, val isUserList: MutableList<String>) :
+class ChatAdapter(private val dataSet: MutableList<ChatData>, private val isUserList: MutableList<String>) :
     RecyclerView.Adapter<RecyclerView.ViewHolder>() {
-
     inner class UserChatViewHolder(private val binding: SendMessageBinding) :
         RecyclerView.ViewHolder(binding.root) {
         fun bind(data: ChatData) {
@@ -48,6 +49,7 @@ class ChatAdapter(val dataSet: MutableList<ChatData>, val isUserList: MutableLis
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         val data = dataSet[position]
+        Log.d("Adapter_holder", holder.itemViewType.toString())
         Log.d("Adapter_holder",holder.toString())
         Log.d("Adapter_data",data.toString())
         when (holder.itemViewType) {
@@ -59,6 +61,9 @@ class ChatAdapter(val dataSet: MutableList<ChatData>, val isUserList: MutableLis
                 val aiChatHolder = holder as AiChatViewHolder
                 aiChatHolder.bind(data)
             }
+            else ->{
+
+            }
         }
     }
 
@@ -66,7 +71,7 @@ class ChatAdapter(val dataSet: MutableList<ChatData>, val isUserList: MutableLis
         Log.d("Adapter_dataSet",dataSet.toString())
         Log.d("Adapter_isUser",isUserList.toString())
         Log.d("Adapter_position",position.toString())
-        if (position < 0 || position >= isUserList.size) {
+        if (position < 0 || position >= dataSet.size || position >= isUserList.size) {
             return VIEW_TYPE_NULL
         }
         val user = isUserList[position]
@@ -76,6 +81,7 @@ class ChatAdapter(val dataSet: MutableList<ChatData>, val isUserList: MutableLis
             else -> VIEW_TYPE_NULL
         }
     }
+
 
 
     companion object {

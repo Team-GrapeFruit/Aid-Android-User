@@ -1,7 +1,7 @@
 package com.grapefruit.aid_android_user.presentation.view
 
 
-import ChatAdapter
+import com.grapefruit.aid_android_user.presentation.view.adapter.ChatAdapter
 import android.os.Bundle
 import android.util.Log
 import androidx.activity.viewModels
@@ -37,11 +37,9 @@ class ChatActivity : AppCompatActivity() {
         }
 
         viewModel.chatInfo.observe(this){
-            if(isUser != null && it != null) {
-
+            if(it != null) {
                 chatList.add(it)
                 isUserList.add(isUser!!)
-
                 Log.d("Activity_chatList",chatList.toString())
                 Log.d("Activity_isUser", isUserList.toString())
                 adapter.notifyDataSetChanged()
@@ -53,6 +51,9 @@ class ChatActivity : AppCompatActivity() {
         val message = binding.editText.text.toString()
         if(message.isNotEmpty()){
             viewModel.sendMessage(message)
+            val newItemPosition = chatList.size + 1  // 새로운 아이템의 위치
+            adapter.notifyItemInserted(newItemPosition)
+            binding.editText.text.clear()
         }
     }
     private fun buildAdapter(){
