@@ -1,6 +1,7 @@
 package com.grapefruit.aid_android_user.presentation.view
 
 
+import android.content.Intent
 import com.grapefruit.aid_android_user.presentation.view.adapter.ChatAdapter
 import android.os.Bundle
 import android.util.Log
@@ -44,6 +45,12 @@ class ChatActivity : AppCompatActivity() {
                 Log.d("Activity_isUser", isUserList.toString())
                 adapter.notifyDataSetChanged()
                 binding.chatView.scrollToPosition(adapter.itemCount-1)
+                if(it.message == "0"){
+                    val intent: Intent = Intent(this@ChatActivity, MenuPageActivity::class.java)
+                    startActivity(intent)
+                    finish()
+                }
+
             }
         }
 

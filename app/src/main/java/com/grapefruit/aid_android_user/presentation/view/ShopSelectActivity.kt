@@ -18,17 +18,20 @@ class ShopSelectActivity : AppCompatActivity() {
         binding = ActivityShopSelectBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        val storeId = intent.getLongExtra("storeId", 0)
-        Log.d("testt_a",storeId.toString())
+        val storeId = intent.getStringExtra("storeId")
+        Log.d("ShopAct_store",storeId.toString())
 
-        viewModel.storeLoad(storeId)
+        if(storeId != null) {
+            viewModel.storeLoad(storeId!!.toLong())
+        }
         viewModel.storeInfo.observe(this){
-            Log.d("testt_sa", it.toString())
-            binding.btnQrCheck.setOnClickListener {
-                val intent = Intent(this@ShopSelectActivity, SeatSelectionActivity::class.java)
-                intent.putExtra("storeId", storeId)
-                startActivity(intent)
-            }
+            Log.d("ShopAct_it", it.toString())
+        }
+        binding.btnQrCheck.setOnClickListener {
+            Log.d("ShopAct_click","yes")
+            val intent = Intent(this@ShopSelectActivity, SeatSelectionActivity::class.java)
+            intent.putExtra("storeId", storeId)
+            startActivity(intent)
         }
     }
 }
