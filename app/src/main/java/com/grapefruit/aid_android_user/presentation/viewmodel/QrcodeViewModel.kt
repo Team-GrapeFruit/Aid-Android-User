@@ -17,7 +17,7 @@ class QrcodeViewModel : ViewModel() {
     val storeInfo: LiveData<ShopDetailData>
         get() = _storeInfo
 
-    fun storeLoad(storeId: String) {
+    fun storeLoad(storeId: Long) {
         viewModelScope.launch {
             val response = NetworkModule.searchStore(storeId)
             Log.d("response", response.code().toString())
@@ -26,7 +26,6 @@ class QrcodeViewModel : ViewModel() {
                 _storeInfo.value = response.body()
                 Log.d("testt_a", response.body().toString())
             } else {
-
                 Log.d("testt_f", "fail")
             }
         }
