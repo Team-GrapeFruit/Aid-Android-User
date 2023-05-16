@@ -21,10 +21,10 @@ class MenuPageActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
 
-        val storeId = 1L
+        val storeId = intent.getStringExtra("storeId")
         val context = this@MenuPageActivity
 
-        viewModel.menuListRoad(storeId)
+        viewModel.menuListRoad(storeId!!.toLong())
 
         viewModel.menuListResponse.observe(this) {
             Log.d("minseok", "observe")

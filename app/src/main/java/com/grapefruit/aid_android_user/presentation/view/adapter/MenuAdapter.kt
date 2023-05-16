@@ -33,6 +33,7 @@ class MenuAdapter(val itemList: CheckMenuDTO) :
         holder.itemView.setOnClickListener {
             val intent =
                 Intent(context, MenuDetailPageActivity::class.java)
+            intent.putExtra("menuId",0)
             context.startActivity(intent)
         }
         holder.bind(menu)
