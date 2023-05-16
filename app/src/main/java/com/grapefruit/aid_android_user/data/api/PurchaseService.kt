@@ -1,12 +1,10 @@
-package com.grapefruit.aid_android_user.feature_menu.data.api
+package com.grapefruit.aid_android_user.data.api
 
-import com.grapefruit.aid_android_user.feature_menu.data.dto.PurchaseDTO
-import com.grapefruit.aid_android_user.feature_menu.data.dto.PurchaseSeatDTO
-import com.grapefruit.aid_android_user.feature_menu.data.dto.QuantityDTO
-import okhttp3.RequestBody
+import com.grapefruit.aid_android_user.data.dto.PurchaseDTO
+import com.grapefruit.aid_android_user.data.dto.PurchaseSeatDTO
+import com.grapefruit.aid_android_user.data.dto.QuantityDTO
 import retrofit2.http.POST
 import retrofit2.http.Path
-import retrofit2.Call
 import retrofit2.Response
 import retrofit2.http.Body
 import retrofit2.http.DELETE

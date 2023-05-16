@@ -1,4 +1,4 @@
-package com.grapefruit.aid_android_user.feature_menu.presentation.adaper.purchase
+package com.grapefruit.aid_android_user.presentation.view.adapter
 
 import android.content.Intent
 import android.util.Log
@@ -10,10 +10,10 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.grapefruit.aid_android_user.R
 import com.grapefruit.aid_android_user.databinding.ShoppingBasketMenulistItemBinding
-import com.grapefruit.aid_android_user.feature_menu.data.dto.PurchaseDTO
-import com.grapefruit.aid_android_user.feature_menu.presentation.MenuPageActivity
-import com.grapefruit.aid_android_user.feature_menu.presentation.ShoppingBasketPageActivity
-import com.grapefruit.aid_android_user.feature_menu.presentation.viewmodel.MenuPageViewModel
+import com.grapefruit.aid_android_user.data.dto.PurchaseDTO
+import com.grapefruit.aid_android_user.presentation.view.MenuPageActivity
+import com.grapefruit.aid_android_user.presentation.view.ShoppingBasketPageActivity
+import com.grapefruit.aid_android_user.presentation.viewmodel.MenuPageViewModel
 
 class PurchaseAdapter(
     val itemList: ArrayList<PurchaseDTO>,

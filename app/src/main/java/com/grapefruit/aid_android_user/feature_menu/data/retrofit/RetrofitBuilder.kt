@@ -1,9 +1,8 @@
 package com.grapefruit.aid_android_user.feature_menu.data.retrofit
 
-import com.grapefruit.aid_android_user.feature_menu.data.api.MenuService
-import com.grapefruit.aid_android_user.feature_menu.data.api.PurchaseService
-import com.grapefruit.aid_android_user.feature_menu.data.dto.*
-import okhttp3.RequestBody
+import com.grapefruit.aid_android_user.data.dto.*
+import com.grapefruit.aid_android_user.data.api.MenuService
+import com.grapefruit.aid_android_user.data.api.PurchaseService
 import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory

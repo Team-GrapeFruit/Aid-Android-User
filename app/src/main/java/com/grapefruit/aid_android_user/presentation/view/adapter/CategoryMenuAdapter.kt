@@ -1,4 +1,4 @@
-package com.grapefruit.aid_android_user.feature_menu.presentation.adaper.menu
+package com.grapefruit.aid_android_user.presentation.view.adapter
 
 import android.content.Intent
 import android.view.LayoutInflater
@@ -9,9 +9,9 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.grapefruit.aid_android_user.R
 import com.grapefruit.aid_android_user.databinding.MenuItemListBinding
-import com.grapefruit.aid_android_user.feature_menu.data.dto.CategoryDTO
-import com.grapefruit.aid_android_user.feature_menu.data.dto.MenuDTO
-import com.grapefruit.aid_android_user.feature_menu.presentation.MenuDetailPageActivity
+import com.grapefruit.aid_android_user.data.dto.CategoryDTO
+import com.grapefruit.aid_android_user.data.dto.MenuDTO
+import com.grapefruit.aid_android_user.presentation.view.MenuDetailPageActivity
 
 class CategoryMenuAdapter(val itemList: CategoryDTO) :
     RecyclerView.Adapter<CategoryMenuAdapter.Holder>() {
