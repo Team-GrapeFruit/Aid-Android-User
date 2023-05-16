@@ -1,9 +1,8 @@
-package com.grapefruit.aid_android_user.feature_menu.data.api
+package com.grapefruit.aid_android_user.data.api
 
-import com.grapefruit.aid_android_user.feature_menu.data.dto.CategoryDTO
-import com.grapefruit.aid_android_user.feature_menu.data.dto.CheckMenuDTO
-import com.grapefruit.aid_android_user.feature_menu.data.dto.MenuDTO
-import com.grapefruit.aid_android_user.feature_menu.data.dto.MenuDetailDTO
+import com.grapefruit.aid_android_user.data.dto.CategoryDTO
+import com.grapefruit.aid_android_user.data.dto.CheckMenuDTO
+import com.grapefruit.aid_android_user.data.dto.MenuDetailDTO
 import retrofit2.Response
 import retrofit2.http.GET
 import retrofit2.http.Path

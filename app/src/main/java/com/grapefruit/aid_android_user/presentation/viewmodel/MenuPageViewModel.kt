@@ -1,11 +1,11 @@
-package com.grapefruit.aid_android_user.feature_menu.presentation.viewmodel
+package com.grapefruit.aid_android_user.presentation.viewmodel
 
 import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.grapefruit.aid_android_user.feature_menu.data.dto.*
+import com.grapefruit.aid_android_user.data.dto.*
 import com.grapefruit.aid_android_user.feature_menu.data.retrofit.RetrofitBuilder
 import kotlinx.coroutines.launch
 

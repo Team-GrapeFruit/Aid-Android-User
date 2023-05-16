@@ -1,15 +1,14 @@
-package com.grapefruit.aid_android_user.feature_menu.presentation
+package com.grapefruit.aid_android_user.presentation.view
 
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.grapefruit.aid_android_user.databinding.ActivityShoppingBasketPageBinding
-import com.grapefruit.aid_android_user.feature_menu.data.dto.PurchaseSeatDTO
-import com.grapefruit.aid_android_user.feature_menu.presentation.adaper.purchase.PurchaseAdapter
-import com.grapefruit.aid_android_user.feature_menu.presentation.viewmodel.MenuPageViewModel
+import com.grapefruit.aid_android_user.data.dto.PurchaseSeatDTO
+import com.grapefruit.aid_android_user.presentation.view.adapter.PurchaseAdapter
+import com.grapefruit.aid_android_user.presentation.viewmodel.MenuPageViewModel
 import com.grapefruit.aid_android_user.view.chat.ChatAcitivity
 
 class ShoppingBasketPageActivity : AppCompatActivity() {

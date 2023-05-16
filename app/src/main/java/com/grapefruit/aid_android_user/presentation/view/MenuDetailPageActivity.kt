@@ -1,4 +1,4 @@
-package com.grapefruit.aid_android_user.feature_menu.presentation
+package com.grapefruit.aid_android_user.presentation.view
 
 import android.content.Intent
 import android.os.Bundle
@@ -7,9 +7,7 @@ import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import com.bumptech.glide.Glide
 import com.grapefruit.aid_android_user.databinding.ActivityMenuDetailPageBinding
-import com.grapefruit.aid_android_user.feature_menu.data.dto.MenuDTO
-import com.grapefruit.aid_android_user.feature_menu.data.dto.PurchaseMenuDTO
-import com.grapefruit.aid_android_user.feature_menu.presentation.viewmodel.MenuPageViewModel
+import com.grapefruit.aid_android_user.presentation.viewmodel.MenuPageViewModel
 
 
 class MenuDetailPageActivity : AppCompatActivity() {

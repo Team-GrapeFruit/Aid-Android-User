@@ -1,4 +1,4 @@
-package com.grapefruit.aid_android_user.feature_menu.data.dto
+package com.grapefruit.aid_android_user.data.dto
 
 import com.google.gson.annotations.SerializedName
 

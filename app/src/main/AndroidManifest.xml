@@ -24,14 +24,14 @@
             android:name=".feature_menu.presentation.ShoppingBasketPageActivity"
             android:exported="false" />
         <activity
-            android:name=".feature_menu.presentation.MenuDetailPageActivity"
+            android:name=".presentation.view.MenuDetailPageActivity"
             android:exported="false" />
         <activity
             android:name=".view.chat.ChatAcitivity"
             android:exported="false"
             android:windowSoftInputMode="adjustResize" />
         <activity
-            android:name=".feature_menu.presentation.MenuPageActivity"
+            android:name=".presentation.view.MenuPageActivity"
 =======
             android:name=".presentation.view.ChatActivity"
             android:exported="false"/>
