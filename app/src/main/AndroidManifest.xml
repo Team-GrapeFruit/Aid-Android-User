@@ -25,7 +25,7 @@
         <activity
             android:name=".presentation.view.ChatActivity"
             android:exported="false"
-            android:windowSoftInputMode="adjustResize" />
+            android:windowSoftInputMode="adjustResize"/>
         <activity
             android:name=".presentation.view.MenuPageActivity"
             android:exported="false"/>

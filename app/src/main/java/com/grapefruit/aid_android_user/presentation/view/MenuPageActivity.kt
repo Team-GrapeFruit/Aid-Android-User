@@ -10,8 +10,6 @@ import com.grapefruit.aid_android_user.databinding.ActivityMenuPageBinding
 import com.grapefruit.aid_android_user.presentation.view.adapter.CategoryMenuAdapter
 import com.grapefruit.aid_android_user.presentation.view.adapter.MenuAdapter
 import com.grapefruit.aid_android_user.presentation.viewmodel.MenuPageViewModel
-import com.grapefruit.aid_android_user.view.chat.ChatAcitivity
-
 
 class MenuPageActivity : AppCompatActivity() {
 
@@ -38,7 +36,7 @@ class MenuPageActivity : AppCompatActivity() {
 
         with(binding) {
             backBtn.setOnClickListener {
-                val intent = Intent(this@MenuPageActivity, ChatAcitivity::class.java)
+                val intent = Intent(this@MenuPageActivity, ChatActivity::class.java)
                 startActivity(intent)
             }
             cartImage.setOnClickListener {

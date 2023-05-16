@@ -7,7 +7,6 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.grapefruit.aid_android_user.data.dto.*
 import com.grapefruit.aid_android_user.di.NetworkModule
-import com.grapefruit.aid_android_user.feature_menu.data.retrofit.RetrofitBuilder
 import kotlinx.coroutines.launch
 
 class MenuPageViewModel : ViewModel() {

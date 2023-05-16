@@ -9,7 +9,6 @@ import com.grapefruit.aid_android_user.databinding.ActivityShoppingBasketPageBin
 import com.grapefruit.aid_android_user.data.dto.PurchaseSeatDTO
 import com.grapefruit.aid_android_user.presentation.view.adapter.PurchaseAdapter
 import com.grapefruit.aid_android_user.presentation.viewmodel.MenuPageViewModel
-import com.grapefruit.aid_android_user.view.chat.ChatAcitivity
 
 class ShoppingBasketPageActivity : AppCompatActivity() {
 
@@ -41,7 +40,7 @@ class ShoppingBasketPageActivity : AppCompatActivity() {
             }
 
             orderBtn.setOnClickListener {
-                val intent = Intent(this@ShoppingBasketPageActivity, ChatAcitivity::class.java)
+                val intent = Intent(this@ShoppingBasketPageActivity, ChatActivity::class.java)
                 startActivity(intent)
             }
         }
