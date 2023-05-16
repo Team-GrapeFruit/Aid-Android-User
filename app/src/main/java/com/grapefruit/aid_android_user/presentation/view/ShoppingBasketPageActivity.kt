@@ -15,7 +15,6 @@ class ShoppingBasketPageActivity : AppCompatActivity() {
 
     lateinit var bining: ActivityShoppingBasketPageBinding
     private val viewModel by viewModels<MenuPageViewModel>()
-    lateinit var list: List<PurchaseSeatDTO>
 
     override fun onCreate(savedInstanceState: Bundle?) {
         bining = ActivityShoppingBasketPageBinding.inflate(layoutInflater)
@@ -42,7 +41,6 @@ class ShoppingBasketPageActivity : AppCompatActivity() {
             }
 
             orderBtn.setOnClickListener {
-                // viewModel.order(1L)
                 val intent = Intent(this@ShoppingBasketPageActivity, ChatAcitivity::class.java)
                 startActivity(intent)
             }

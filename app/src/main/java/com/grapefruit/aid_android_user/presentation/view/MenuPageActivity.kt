@@ -26,13 +26,6 @@ class MenuPageActivity : AppCompatActivity() {
         val storeId = 1L
         val context = this@MenuPageActivity
 
-        var intent = Intent(this@MenuPageActivity, MenuDetailPageActivity::class.java)
-        // intent.putExtra("menuId", viewModel.menuDetailRoad(menuId))
-
-        /*val menu = CommunicationWork()
-        menu.menulist(storeId, this@MenuPageActivity)
-        menu.category(categoryId, this@MenuPageActivity)*/
-
         viewModel.menuListRoad(storeId)
 
         viewModel.menuListResponse.observe(this) {
@@ -40,14 +33,6 @@ class MenuPageActivity : AppCompatActivity() {
             Log.d("minseok", it.toString())
             val menuAdapter = MenuAdapter(it)
             binding.menuList.layoutManager = LinearLayoutManager(this)
-            /*menuAdapter.setItemOnClickListener(object : MenuAdapter.OnItemClickListener {
-                override fun onClick(position: Int) {
-                    val intent = Intent(context, MenuDetailPageActivity::class.java)
-                    Log.d("testt",it.singleMenuResponse[position].toString())
-                    intent.putExtra("data", it.singleMenuResponse[position].menuId)
-                    startActivity(intent)
-                }
-            })*/
             binding.menuList.adapter = menuAdapter
         }
 
