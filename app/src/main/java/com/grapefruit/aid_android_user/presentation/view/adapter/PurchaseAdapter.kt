@@ -44,25 +44,15 @@ class PurchaseAdapter(
             with(binding) {
                 deleteBtn.setOnClickListener {
                     activity.deleteItem(position)
-//                    viewModel.deleteMenuRoad(position.plus(1).toLong())
-//                    Log.d("delete-menu", position.toString())
-//                    notifyItemRemoved(position)
                     viewModel.purchaseListRoad(1L)
-                    // notifyDataSetChanged()
                 }
                 plusBtn.setOnClickListener {
                     activity.quantityControl(position, purchase.quantity+1)
-                    /*++amount
-                    quantity.text = .toString()
-                    Log.d("plus", amount.toString())*/
                     viewModel.purchaseListRoad(1L)
                     notifyDataSetChanged()
                 }
                 minusBtn.setOnClickListener {
                     activity.quantityControl(position, purchase.quantity-1)
-                    /*--amount
-                    quantity.text = amount.toString()
-                    Log.d("minus", amount.toString())*/
                     viewModel.purchaseListRoad(1L)
                     notifyDataSetChanged()
                 }

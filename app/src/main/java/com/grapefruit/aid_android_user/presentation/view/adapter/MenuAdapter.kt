@@ -24,7 +24,6 @@ class MenuAdapter(val itemList: CheckMenuDTO) :
     }
 
     override fun getItemCount(): Int {
-        Log.d("Adapter-menu-size", itemList.singleMenuResponse.size.toString())
         return itemList.singleMenuResponse.size
     }
 
@@ -43,13 +42,6 @@ class MenuAdapter(val itemList: CheckMenuDTO) :
         RecyclerView.ViewHolder(binding.root) {
 
         private val context = binding.root.context
-
-        /*init {
-            binding.root.setOnClickListener {
-                val intent = Intent(context, MenuDetailPageActivity::class.java)
-                context.startActivity(intent)
-            }
-        }*/
 
         private val menuName = itemView.findViewById<TextView>(R.id.menu_name)
         private val cost = itemView.findViewById<TextView>(R.id.cost)

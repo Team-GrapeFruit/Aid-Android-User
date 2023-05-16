@@ -71,28 +71,6 @@ class MenuPageViewModel : ViewModel() {
         }
     }
 
-    /*fun addMenuToBasket(menuInfo: PurchaseMenuDTO) {
-        _menuListReqDto.add(menuInfo)
-    }
-
-    fun addMenuToMenuInfoList(purchaseId: Long, quantity: Long, menuInfo: MenuDTO) {
-        _menuInfoList.add(
-            PurchaseDTO(
-                purchaseId,
-                quantity,
-                menuInfo
-            )
-        )
-    }
-
-    fun order(seatId: Long) {
-        viewModelScope.launch {
-            val response =
-                RetrofitBuilder.purchaseSeat(seatId, PurchaseSeatDTO(menuListReq = _menuListReqDto))
-            Log.d("order", response.body().toString())
-        }
-    }*/
-
     fun orderMenuToPurchaseRoad(seatId: Long, menuId: Long, quantity: Long) {
         viewModelScope.launch {
             /*val response =

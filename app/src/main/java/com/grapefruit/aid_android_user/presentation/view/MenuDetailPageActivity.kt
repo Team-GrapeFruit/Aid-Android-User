@@ -30,7 +30,6 @@ class MenuDetailPageActivity : AppCompatActivity() {
         with(binding) {
 
             viewModel.menuDetailResponse.observe(this@MenuDetailPageActivity) {
-                Log.d("detail-info", it.toString())
                 this@MenuDetailPageActivity.menuName = it.menuName
                 this@MenuDetailPageActivity.cost = it.cost
                 this@MenuDetailPageActivity.imgUrl = it.menuImgURL ?: ""
@@ -47,22 +46,9 @@ class MenuDetailPageActivity : AppCompatActivity() {
                 startActivity(intent)
             }
             cartBtn.setOnClickListener {
-                /*viewModel.addMenuToBasket(menuInfo = PurchaseMenuDTO(1L, 1L))
-                viewModel.addMenuToMenuInfoList(
-                    purchaseId = 1L,
-                    quantity = 1L,
-                    menuInfo = MenuDTO(
-                        menuId = 0L,
-                        menuName = this@MenuDetailPageActivity.menuName,
-                        cost = this@MenuDetailPageActivity.cost,
-                        menuImgURL = this@MenuDetailPageActivity.imgUrl
-                    )
-                )
-                Log.d("cartBtn", viewModel.menuInfoList.toString())*/
                 viewModel.orderMenuToPurchaseRoad(1L, 1L, 1L)
             }
             cartImage.setOnClickListener {
-                // Log.d("cartImage", viewModel.menuInfoList.toString())
                 val intent =
                     Intent(this@MenuDetailPageActivity, ShoppingBasketPageActivity::class.java)
                 startActivity(intent)
