@@ -17,15 +17,14 @@ class MenuDetailPageActivity : AppCompatActivity() {
     private var menuName = ""
     private var cost = 0L
     private var imgUrl = ""
-    var menuId = 0L
 
     override fun onCreate(savedInstanceState: Bundle?) {
         binding = ActivityMenuDetailPageBinding.inflate(layoutInflater)
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
 
-        menuId = intent.getLongExtra("menuId",0)
-        viewModel.menuDetailRoad(menuId)
+        var menuId = intent.getStringExtra("menuId")
+        viewModel.menuDetailRoad(menuId!!.toLong())
 
         with(binding) {
 

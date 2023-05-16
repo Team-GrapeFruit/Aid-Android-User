@@ -28,7 +28,8 @@
             android:windowSoftInputMode="adjustResize"/>
         <activity
             android:name=".presentation.view.MenuPageActivity"
-            android:exported="false"/>
+            android:exported="true">
+        </activity>
         <activity
             android:name=".presentation.view.QrScanActivity"
             android:exported="false"/>
