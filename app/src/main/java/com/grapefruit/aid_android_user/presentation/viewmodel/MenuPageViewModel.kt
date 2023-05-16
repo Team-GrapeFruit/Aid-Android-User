@@ -6,6 +6,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.grapefruit.aid_android_user.data.dto.*
+import com.grapefruit.aid_android_user.di.NetworkModule
 import com.grapefruit.aid_android_user.feature_menu.data.retrofit.RetrofitBuilder
 import kotlinx.coroutines.launch
 
@@ -37,7 +38,7 @@ class MenuPageViewModel : ViewModel() {
 
     fun menuListRoad(storeId: Long) {
         viewModelScope.launch {
-            val response = RetrofitBuilder.menuList(storeId)
+            val response = NetworkModule.menuList(storeId)
             Log.d("detail-in-menulist", response.code().toString())
 
             if (response.code() == 200) {
@@ -49,7 +50,7 @@ class MenuPageViewModel : ViewModel() {
 
     fun categoryMenuListRoad(categoryId: Long) {
         viewModelScope.launch {
-            val response = RetrofitBuilder.categoryMenuList(categoryId)
+            val response = NetworkModule.categoryMenuList(categoryId)
             Log.d("detail-in", response.body().toString())
 
             if (response.code() == 200) {
@@ -61,7 +62,7 @@ class MenuPageViewModel : ViewModel() {
 
     fun menuDetailRoad(menuId: Long) {
         viewModelScope.launch {
-            val response = RetrofitBuilder.menuDetail(menuId)
+            val response = NetworkModule.menuDetail(menuId)
             Log.d("detail-in", response.body().toString())
 
             if (response.code() == 200) {
@@ -80,14 +81,14 @@ class MenuPageViewModel : ViewModel() {
 
     fun deleteMenuRoad(purchaseId: Long) {
         viewModelScope.launch {
-            val response = RetrofitBuilder.deleteMenu(purchaseId)
+            val response = NetworkModule.deleteMenu(purchaseId)
             Log.d("detail-delete", response.body().toString())
         }
     }
 
     fun quantityControlRoad(purchaseId: Long, quantity: Long) {
         viewModelScope.launch {
-            val response = RetrofitBuilder.quantityControl(purchaseId, QuantityDTO(quantity))
+            val response = NetworkModule.quantityControl(purchaseId, QuantityDTO(quantity))
             Log.d("ddd", response.code().toString())
             Log.d("testt", purchaseId.toString())
             Log.d("testt", quantity.toString())
@@ -96,7 +97,7 @@ class MenuPageViewModel : ViewModel() {
 
     fun purchaseListRoad(seatId: Long) {
         viewModelScope.launch {
-            val response = RetrofitBuilder.purchaseList(seatId)
+            val response = NetworkModule.purchaseList(seatId)
             Log.d("detail-in", response.body().toString())
 
             if (response.code() == 200) {
