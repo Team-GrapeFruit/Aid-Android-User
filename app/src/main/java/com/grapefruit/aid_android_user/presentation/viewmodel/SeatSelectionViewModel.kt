@@ -5,22 +5,19 @@ import android.util.Log
 import android.widget.Toast
 import androidx.lifecycle.*
 import com.grapefruit.aid_android_user.presentation.view.SeatSelectionActivity
-import com.grapefruit.aid_android_user.data.dto.SeatDTO
+import com.grapefruit.aid_android_user.data.dto.SeatData
 import com.grapefruit.aid_android_user.di.NetworkModule
 import kotlinx.coroutines.launch
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
 
 class SeatSelectionViewModel: ViewModel() {
 
-    private val _seatListResponse = MutableLiveData<List<SeatDTO>>()
-    val seatListResponse: LiveData<List<SeatDTO>> get() = _seatListResponse
+    private val _seatListResponse = MutableLiveData<List<SeatData>>()
+    val seatListResponse: LiveData<List<SeatData>> get() = _seatListResponse
 
     fun seatList(storeId: Long) {
         viewModelScope.launch {
             val response = NetworkModule.seatList(storeId)
-            Log.d("response", response.code().toString())
+            Log.d("response_v", response.code().toString())
 
             if (response.code() == 200) {
                 _seatListResponse.value = response.body()

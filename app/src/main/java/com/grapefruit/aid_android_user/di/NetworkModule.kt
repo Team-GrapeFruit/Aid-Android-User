@@ -25,19 +25,19 @@ object NetworkModule {
 
     val purchasePage: PurchaseService = retrofit.create(PurchaseService::class.java)
 
-    suspend fun menuList(storeId: Long): Response<CheckMenuDTO> {
+    suspend fun menuList(storeId: Long): Response<CheckMenuData> {
         return menuPage.menuList(storeId)
     }
 
-    suspend fun categoryMenuList(categoryId: Long): Response<CategoryDTO> {
+    suspend fun categoryMenuList(categoryId: Long): Response<CategoryData> {
         return menuPage.menuCategory(categoryId)
     }
 
-    suspend fun menuDetail(menuId: Long): Response<MenuDetailDTO> {
+    suspend fun menuDetail(menuId: Long): Response<MenuDetailData> {
         return menuPage.menuDetail(menuId)
     }
 
-    suspend fun orderMenuToPurchase(seatId: Long, body: List<PurchaseSeatDTO>): Response<Unit> {
+    suspend fun orderMenuToPurchase(seatId: Long, body: List<PurchaseSeatData>): Response<Unit> {
         return purchasePage.orderMenu(seatId, body)
     }
 
@@ -56,7 +56,7 @@ object NetworkModule {
     suspend fun searchStore(storeId: Long): Response<ShopDetailData> {
         return storeApi.searchStore(storeId)
     }
-    suspend fun seatList(storeId: Long): Response<List<SeatDTO>> {
+    suspend fun seatList(storeId: Long): Response<List<SeatData>> {
         return seatApi.seatList(storeId)
     }
 

@@ -20,11 +20,11 @@ class ShopSelectActivity : AppCompatActivity() {
         binding = ActivityShopSelectBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        val storeId = intent.getStringExtra("storeId")
+        val storeId = intent.getLongExtra("storeId",0)
         Log.d("ShopAct_store",storeId.toString())
 
         if(storeId != null) {
-            viewModel.storeLoad(storeId!!.toLong())
+            viewModel.storeLoad(storeId)
         }
         viewModel.isSuccess.observe(this){
             Log.d("ShopAct_it", it.toString())

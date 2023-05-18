@@ -27,12 +27,13 @@ class SeatSelectionActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
-        storeId = intent.getLongExtra("storeId", 0)
-        viewModel.seatList(storeId)
-
         binding = DataBindingUtil.setContentView(this, R.layout.activity_seat_selection)
         binding.activity = this
+
+        storeId = intent.getLongExtra("storeId", 0)
+        Log.d("testt_s",storeId.toString())
+        viewModel.seatList(storeId)
+
 
         viewModel.seatListResponse.observe(this) {
             with(binding) {

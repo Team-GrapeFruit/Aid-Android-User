@@ -6,7 +6,6 @@ import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.grapefruit.aid_android_user.databinding.ActivityShoppingBasketPageBinding
-import com.grapefruit.aid_android_user.data.dto.PurchaseSeatDTO
 import com.grapefruit.aid_android_user.presentation.view.adapter.PurchaseAdapter
 import com.grapefruit.aid_android_user.presentation.viewmodel.MenuPageViewModel
 

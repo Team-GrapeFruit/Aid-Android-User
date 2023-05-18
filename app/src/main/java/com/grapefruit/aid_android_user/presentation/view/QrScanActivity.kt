@@ -59,8 +59,9 @@ class QrScanActivity : AppCompatActivity() {
             decodeCallback = DecodeCallback {
                 runOnUiThread {
                     val barcodeValue = it.text
-                    val intent: Intent = Intent(this@QrScanActivity,ShopSelectActivity::class.java)
-                    intent.putExtra("storeId",barcodeValue)
+                    Log.d("testt",it.toString())
+                    val intent = Intent(this@QrScanActivity,ShopSelectActivity::class.java)
+                    intent.putExtra("storeId",barcodeValue.toLong())
                     startActivity(intent)
                 }
             }

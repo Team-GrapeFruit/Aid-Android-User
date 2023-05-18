@@ -1,7 +1,6 @@
 package com.grapefruit.aid_android_user.data.api
 
-import com.grapefruit.aid_android_user.data.dto.SeatDTO
-import retrofit2.Call
+import com.grapefruit.aid_android_user.data.dto.SeatData
 import retrofit2.Response
 import retrofit2.http.GET
 import retrofit2.http.PATCH
@@ -11,7 +10,7 @@ interface SeatApi {
     @GET("/seat/{storeId}")
     suspend fun seatList(
         @Path("storeId") storeId: Long
-    ): Response<List<SeatDTO>>
+    ): Response<List<SeatData>>
 
     @PATCH("/seat/allow/{seatId}")
     suspend fun allow(

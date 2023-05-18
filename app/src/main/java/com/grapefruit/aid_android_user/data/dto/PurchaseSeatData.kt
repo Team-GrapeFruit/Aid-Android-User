@@ -2,12 +2,12 @@ package com.grapefruit.aid_android_user.data.dto
 
 import com.google.gson.annotations.SerializedName
 
-data class PurchaseSeatDTO(
+data class PurchaseSeatData(
     @SerializedName("menuListReqDto")
-    val menuListReq: List<PurchaseMenuDTO>,
+    val menuListReq: List<PurchaseMenuData>,
 )
 
-data class PurchaseMenuDTO(
+data class PurchaseMenuData(
     val menuId: Long,
     val quantity: Long,
 )
