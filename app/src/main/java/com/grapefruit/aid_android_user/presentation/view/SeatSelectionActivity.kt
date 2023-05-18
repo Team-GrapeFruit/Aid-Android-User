@@ -25,6 +25,7 @@ class SeatSelectionActivity : AppCompatActivity() {
     var seatId: Long = 0
     var seatState = 0
     private val tables = mutableListOf<TextView>()
+    var count = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -33,10 +34,9 @@ class SeatSelectionActivity : AppCompatActivity() {
 
         storeId = intent.getLongExtra("storeId", 0)
         Log.d("testt_s",storeId.toString())
-        viewModel.seatList(storeId)
-
 
         viewModel.seatListResponse.observe(this) {
+            Log.d("observe", "check")
             with(binding) {
                 table.removeAllViews()
                 tables.clear()
@@ -46,34 +46,49 @@ class SeatSelectionActivity : AppCompatActivity() {
                     table.addView(createTable)
                 }
             }
+            count++
+            if(count > 2){
+                val table = tables[seatId.toInt() - 1]
+
+                table.setTextColor(ContextCompat.getColor(this@SeatSelectionActivity, R.color.gray3))
+                table.setBackgroundResource(R.drawable.seat_empty_background)
+            }
         }
 
         binding.btnBack.setOnClickListener {
-            startActivity(Intent(this, QrScanActivity::class.java))
+            finish()
         }
 
         binding.seatSelectionBtn.setOnClickListener {
             if (seatId != 0L) {
                 // 자리 선택하기
                 if (seatState == 0) {
+                    count = 1
                     viewModel.allow(seatId, this@SeatSelectionActivity)
-                    // 자리 선택취소하기
+                    val intent = Intent(this, ChatActivity::class.java)
+                    intent.putExtra("storeId", storeId)
+                    intent.putExtra("seatId", seatId)
+                    startActivity(intent)
+                // 자리 선택취소하기
                 } else {
                     viewModel.cancel(seatId, this@SeatSelectionActivity)
+                    Toast.makeText(this, "예약이 취소되었습니다!", Toast.LENGTH_SHORT).show()
+                    // 새로 고침
+                    viewModel.seatList(storeId)
                 }
             } else {
                 Toast.makeText(this, "자리를 선택해주세요", Toast.LENGTH_SHORT).show()
             }
-
-            startActivity(Intent(this, ChatActivity::class.java))
-            intent.putExtra("storeId", storeId)
         }
+        viewModel.seatList(storeId)
+
     }
 
     override fun onResume() {
         super.onResume()
 
         viewModel.seatList(storeId)
+        binding.seatSelectionBtn.text = "자리선택"
     }
 
     private fun createTable(index: Int): TextView {
@@ -138,9 +153,13 @@ class SeatSelectionActivity : AppCompatActivity() {
             // 자리 사용 가능
             if (seatList.enabled == true) {
                 seatState = 0
+
+                binding.seatSelectionBtn.text = "자리선택"
             // 자리 사용 불가능
             } else {
                 seatState = 1
+
+                binding.seatSelectionBtn.text = "예약취소"
             }
 
             for (i in tables.indices) {
@@ -158,10 +177,14 @@ class SeatSelectionActivity : AppCompatActivity() {
 
             seatId = seatList.seatId
         } else {
+
+            binding.seatSelectionBtn.text = "자리선택"
+
             // 자리 사용 가능
             if (seatList.enabled == true) {
                 seat.setTextColor(ContextCompat.getColor(this, R.color.gray3))
                 seat.setBackgroundResource(R.drawable.seat_empty_background)
+
 
                 seatId = 0
                 seatState = 0
@@ -169,6 +192,7 @@ class SeatSelectionActivity : AppCompatActivity() {
             } else {
                 seat.setTextColor(ContextCompat.getColor(this, R.color.light_pink))
                 seat.setBackgroundResource(R.drawable.seat_use_background)
+
 
                 seatId = 0
                 seatState = 1
