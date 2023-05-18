@@ -15,13 +15,15 @@ class MenuPageActivity : AppCompatActivity() {
 
     lateinit var binding: ActivityMenuPageBinding
     val viewModel by viewModels<MenuPageViewModel>()
+    var storeId = 0L
 
     override fun onCreate(savedInstanceState: Bundle?) {
         binding = ActivityMenuPageBinding.inflate(layoutInflater)
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
 
-        val storeId = intent.getStringExtra("storeId")
+        storeId = intent.getLongExtra("storeId",0)
+        Log.d("storeId", storeId.toString())
         val context = this@MenuPageActivity
 
         viewModel.menuListRoad(storeId!!.toLong())

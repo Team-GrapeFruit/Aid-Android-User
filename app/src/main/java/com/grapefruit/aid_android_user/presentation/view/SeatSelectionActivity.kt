@@ -60,6 +60,7 @@ class SeatSelectionActivity : AppCompatActivity() {
             }
 
             startActivity(Intent(this, ChatActivity::class.java))
+            intent.putExtra("storeId", storeId)
         }
     }
 

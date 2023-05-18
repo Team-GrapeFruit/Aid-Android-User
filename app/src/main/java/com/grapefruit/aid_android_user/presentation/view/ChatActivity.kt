@@ -20,6 +20,7 @@ class ChatActivity : AppCompatActivity() {
     private var isUser: String? = null
     val chatList: MutableList<ChatData> = mutableListOf()
     val isUserList: MutableList<String> = mutableListOf()
+    val storeId = intent.getLongExtra("storeId",0)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityChatBinding.inflate(layoutInflater)
@@ -47,6 +48,7 @@ class ChatActivity : AppCompatActivity() {
                 binding.chatView.scrollToPosition(adapter.itemCount-1)
                 if(it.message == "0"){
                     val intent: Intent = Intent(this@ChatActivity, MenuPageActivity::class.java)
+                    intent.putExtra("storeId", storeId)
                     startActivity(intent)
                     finish()
                 }
