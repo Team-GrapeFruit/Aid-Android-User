@@ -24,6 +24,7 @@ class SeatSelectionActivity : AppCompatActivity() {
     var storeId = 0L
     var seatId: Long = 0
     var seatState = 0
+    private val tables = mutableListOf<TextView>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -37,8 +38,12 @@ class SeatSelectionActivity : AppCompatActivity() {
 
         viewModel.seatListResponse.observe(this) {
             with(binding) {
+                table.removeAllViews()
+                tables.clear()
                 for (i in 0..it.singleSeatResponse.lastIndex) {
-                    table.addView(createTable(i))
+                    val createTable = createTable(i)
+                    tables.add(createTable)
+                    table.addView(createTable)
                 }
             }
         }
@@ -71,7 +76,7 @@ class SeatSelectionActivity : AppCompatActivity() {
         viewModel.seatList(storeId)
     }
 
-    private fun createTable(index: Int): View {
+    private fun createTable(index: Int): TextView {
         val table = TextView(this)
         val seatList = viewModel.seatListResponse.value?.singleSeatResponse?.get(index)!!
         table.width = widthSize(seatList.customerNum)
@@ -96,6 +101,7 @@ class SeatSelectionActivity : AppCompatActivity() {
         }
         return table
     }
+
 
     private fun widthSize(customerNum: Long): Int {
         return if (customerNum == 1L) 190
@@ -137,8 +143,18 @@ class SeatSelectionActivity : AppCompatActivity() {
                 seatState = 1
             }
 
-            seat.setTextColor(ContextCompat.getColor(this, R.color.navy))
-            seat.setBackgroundResource(R.drawable.seat_selection_background)
+            for (i in tables.indices) {
+                val table2 = tables[i]
+                val seatList2 = viewModel.seatListResponse.value?.singleSeatResponse?.get(i)!!
+
+                if (i != index) {
+                    table2.setBackgroundResource(background(seatList2.enabled))
+                    table2.setTextColor(ContextCompat.getColor(this@SeatSelectionActivity, textColor(seatList2.enabled)))
+                } else {
+                    table2.setTextColor(ContextCompat.getColor(this@SeatSelectionActivity, R.color.navy))
+                    table2.setBackgroundResource(R.drawable.seat_selection_background)
+                }
+            }
 
             seatId = seatList.seatId
         } else {
