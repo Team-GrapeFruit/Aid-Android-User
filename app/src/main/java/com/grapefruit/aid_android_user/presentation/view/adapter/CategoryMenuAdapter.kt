@@ -9,11 +9,11 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.grapefruit.aid_android_user.R
 import com.grapefruit.aid_android_user.databinding.MenuItemListBinding
-import com.grapefruit.aid_android_user.data.dto.CategoryDTO
-import com.grapefruit.aid_android_user.data.dto.MenuDTO
+import com.grapefruit.aid_android_user.data.dto.CategoryData
+import com.grapefruit.aid_android_user.data.dto.MenuData
 import com.grapefruit.aid_android_user.presentation.view.MenuDetailPageActivity
 
-class CategoryMenuAdapter(val itemList: CategoryDTO) :
+class CategoryMenuAdapter(val itemList: CategoryData) :
     RecyclerView.Adapter<CategoryMenuAdapter.Holder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): Holder {
         val binding =
@@ -46,11 +46,11 @@ class CategoryMenuAdapter(val itemList: CategoryDTO) :
         private val cost = itemView.findViewById<TextView>(R.id.cost)
         private val menuImg = itemView.findViewById<ImageView>(R.id.menu_image)
 
-        fun bind(menuDTO: MenuDTO) {
-            menuName.text = menuDTO.menuName
-            cost.text = menuDTO.cost.toString() + "원"
+        fun bind(menuData: MenuData) {
+            menuName.text = menuData.menuName
+            cost.text = menuData.cost.toString() + "원"
             Glide.with(menuImg)
-                .load(menuDTO.menuImgURL)
+                .load(menuData.menuImgURL)
                 .into(binding.menuImage)
         }
     }

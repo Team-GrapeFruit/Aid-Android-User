@@ -1,7 +1,6 @@
 package com.grapefruit.aid_android_user.presentation.view.adapter
 
 import android.content.Intent
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.ImageView
@@ -10,11 +9,11 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.grapefruit.aid_android_user.R
 import com.grapefruit.aid_android_user.databinding.MenuItemListBinding
-import com.grapefruit.aid_android_user.data.dto.CheckMenuDTO
-import com.grapefruit.aid_android_user.data.dto.MenuDTO
+import com.grapefruit.aid_android_user.data.dto.CheckMenuData
+import com.grapefruit.aid_android_user.data.dto.MenuData
 import com.grapefruit.aid_android_user.presentation.view.MenuDetailPageActivity
 
-class MenuAdapter(val itemList: CheckMenuDTO) :
+class MenuAdapter(val itemList: CheckMenuData) :
     RecyclerView.Adapter<MenuAdapter.Holder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): Holder {
@@ -48,11 +47,11 @@ class MenuAdapter(val itemList: CheckMenuDTO) :
         private val cost = itemView.findViewById<TextView>(R.id.cost)
         private val menuImg = itemView.findViewById<ImageView>(R.id.menu_image)
 
-        fun bind(menuDTO: MenuDTO) {
-            menuName.text = menuDTO.menuName
-            cost.text = menuDTO.cost.toString() + "원"
+        fun bind(menuData: MenuData) {
+            menuName.text = menuData.menuName
+            cost.text = menuData.cost.toString() + "원"
             Glide.with(menuImg)
-                .load(menuDTO.menuImgURL)
+                .load(menuData.menuImgURL)
                 .into(binding.menuImage)
         }
     }

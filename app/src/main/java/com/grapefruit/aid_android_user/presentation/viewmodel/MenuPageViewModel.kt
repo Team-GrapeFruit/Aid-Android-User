@@ -10,29 +10,29 @@ import com.grapefruit.aid_android_user.di.NetworkModule
 import kotlinx.coroutines.launch
 
 class MenuPageViewModel : ViewModel() {
-    private val _menuListResponse = MutableLiveData<CheckMenuDTO>()
-    private val _menuByCategoryResponse = MutableLiveData<CategoryDTO>()
-    private val _menuDetailResponse = MutableLiveData<MenuDetailDTO>()
-    private val _purchaseListResponse = MutableLiveData<List<PurchaseDTO>>()
-    private val _menuListReqDto = arrayListOf<PurchaseMenuDTO>()
-    private val _menuInfoList = arrayListOf<PurchaseDTO>()
+    private val _menuListResponse = MutableLiveData<CheckMenuData>()
+    private val _menuByCategoryResponse = MutableLiveData<CategoryData>()
+    private val _menuDetailResponse = MutableLiveData<MenuDetailData>()
+    private val _purchaseListResponse = MutableLiveData<List<PurchaseData>>()
+    private val _menuListReqDto = arrayListOf<PurchaseMenuData>()
+    private val _menuInfoList = arrayListOf<PurchaseData>()
 
-    val menuListResponse: LiveData<CheckMenuDTO>
+    val menuListResponse: LiveData<CheckMenuData>
         get() = _menuListResponse
 
-    val menuByCategoryResponse: LiveData<CategoryDTO>
+    val menuByCategoryResponse: LiveData<CategoryData>
         get() = _menuByCategoryResponse
 
-    val menuDetailResponse: LiveData<MenuDetailDTO>
+    val menuDetailResponse: LiveData<MenuDetailData>
         get() = _menuDetailResponse
 
-    val purchaseListResponse: LiveData<List<PurchaseDTO>>
+    val purchaseListResponse: LiveData<List<PurchaseData>>
         get() = _purchaseListResponse
 
-    val menuListReqDto: ArrayList<PurchaseMenuDTO>
+    val menuListReqDto: ArrayList<PurchaseMenuData>
         get() = _menuListReqDto
 
-    val menuInfoList: ArrayList<PurchaseDTO>
+    val menuInfoList: ArrayList<PurchaseData>
         get() = _menuInfoList
 
     fun menuListRoad(storeId: Long) {
@@ -87,7 +87,7 @@ class MenuPageViewModel : ViewModel() {
 
     fun quantityControlRoad(purchaseId: Long, quantity: Long) {
         viewModelScope.launch {
-            val response = NetworkModule.quantityControl(purchaseId, QuantityDTO(quantity))
+            val response = NetworkModule.quantityControl(purchaseId, QuantityData(quantity))
             Log.d("ddd", response.code().toString())
             Log.d("testt", purchaseId.toString())
             Log.d("testt", quantity.toString())

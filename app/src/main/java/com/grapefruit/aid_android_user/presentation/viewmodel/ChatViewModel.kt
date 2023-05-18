@@ -1,5 +1,6 @@
 package com.grapefruit.aid_android_user.presentation.viewmodel
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -27,7 +28,7 @@ class ChatViewModel: ViewModel() {
         val dataInput = ChatData(
             message = message,
             time = time,
-            messageNum = (++chatCnt).toString(),
+            messageNum = (++chatCnt).toString()
         )
 
         _isUser.value = "user"
@@ -51,6 +52,7 @@ class ChatViewModel: ViewModel() {
                 if (snapshot.value != null) {
                     _isUser.value = "ai"
                     _chatInfo.value = snapshot.getValue(ChatData::class.java)
+                    Log.d("testt",snapshot.value.toString())
                     query.removeEventListener(this)
                 }
             }

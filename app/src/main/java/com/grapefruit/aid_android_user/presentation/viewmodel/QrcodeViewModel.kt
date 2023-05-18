@@ -12,20 +12,21 @@ import kotlinx.coroutines.launch
 
 
 class QrcodeViewModel : ViewModel() {
-    private var _storeInfo = MutableLiveData<ShopDetailData>()
+    private var _isSuccess = MutableLiveData<Boolean>()
 
-    val storeInfo: LiveData<ShopDetailData>
-        get() = _storeInfo
+    val isSuccess: LiveData<Boolean>
+        get() = _isSuccess
 
     fun storeLoad(storeId: Long) {
         viewModelScope.launch {
             val response = NetworkModule.searchStore(storeId)
-            Log.d("response", response.code().toString())
+            Log.d("viewModel_response", response.code().toString())
 
             if (response.code() == 200) {
-                _storeInfo.value = response.body()
+                _isSuccess.value = true
                 Log.d("viewModel_success", response.body().toString())
             } else {
+                _isSuccess.value = false
                 Log.d("viewModel_fail", "fail")
             }
         }
