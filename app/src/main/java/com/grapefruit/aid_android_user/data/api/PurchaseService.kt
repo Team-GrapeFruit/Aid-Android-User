@@ -1,8 +1,8 @@
 package com.grapefruit.aid_android_user.data.api
 
-import com.grapefruit.aid_android_user.data.dto.PurchaseDTO
+import com.grapefruit.aid_android_user.data.dto.PurchaseData
 import com.grapefruit.aid_android_user.data.dto.PurchaseSeatData
-import com.grapefruit.aid_android_user.data.dto.QuantityDTO
+import com.grapefruit.aid_android_user.data.dto.QuantityData
 import retrofit2.http.POST
 import retrofit2.http.Path
 import retrofit2.Response
@@ -21,7 +21,7 @@ interface PurchaseService {
     @PATCH("purchase/{purchaseId}")
     suspend fun quantityControl(
         @Path("purchaseId") purchaseId: Long,
-        @Body body: QuantityDTO
+        @Body body: QuantityData
     ): Response<Unit>
 
     @DELETE("purchase/food/{purchaseId}")
@@ -32,5 +32,5 @@ interface PurchaseService {
     @GET("purchase/{seatId}")
     suspend fun addMenuList(
         @Path("seatId") seatId: Long,
-    ): Response<List<PurchaseDTO>>
+    ): Response<List<PurchaseData>>
 }

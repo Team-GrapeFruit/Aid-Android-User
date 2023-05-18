@@ -11,8 +11,8 @@ import kotlinx.coroutines.launch
 
 class SeatSelectionViewModel: ViewModel() {
 
-    private val _seatListResponse = MutableLiveData<List<SeatData>>()
-    val seatListResponse: LiveData<List<SeatData>> get() = _seatListResponse
+    private val _seatListResponse = MutableLiveData<SeatData>()
+    val seatListResponse: LiveData<SeatData> get() = _seatListResponse
 
     fun seatList(storeId: Long) {
         viewModelScope.launch {

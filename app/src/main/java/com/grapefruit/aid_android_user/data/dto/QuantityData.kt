@@ -1,5 +1,5 @@
 package com.grapefruit.aid_android_user.data.dto
 
-data class QuantityDTO(
+data class QuantityData(
     val quantity: Long
 )

@@ -10,7 +10,7 @@ interface SeatApi {
     @GET("/seat/{storeId}")
     suspend fun seatList(
         @Path("storeId") storeId: Long
-    ): Response<List<SeatData>>
+    ): Response<SeatData>
 
     @PATCH("/seat/allow/{seatId}")
     suspend fun allow(

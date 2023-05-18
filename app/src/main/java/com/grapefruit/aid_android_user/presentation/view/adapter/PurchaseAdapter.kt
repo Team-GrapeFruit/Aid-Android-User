@@ -10,13 +10,13 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.grapefruit.aid_android_user.R
 import com.grapefruit.aid_android_user.databinding.ShoppingBasketMenulistItemBinding
-import com.grapefruit.aid_android_user.data.dto.PurchaseDTO
+import com.grapefruit.aid_android_user.data.dto.PurchaseData
 import com.grapefruit.aid_android_user.presentation.view.MenuPageActivity
 import com.grapefruit.aid_android_user.presentation.view.ShoppingBasketPageActivity
 import com.grapefruit.aid_android_user.presentation.viewmodel.MenuPageViewModel
 
 class PurchaseAdapter(
-    val itemList: ArrayList<PurchaseDTO>,
+    val itemList: ArrayList<PurchaseData>,
     val activity: ShoppingBasketPageActivity,
 ) :
     RecyclerView.Adapter<PurchaseAdapter.Holder>() {
@@ -80,7 +80,7 @@ class PurchaseAdapter(
         private val quantity = itemView.findViewById<TextView>(R.id.quantity)
         private val menuImg = itemView.findViewById<ImageView>(R.id.menu_image)
 
-        fun bind(purchaseDTO: PurchaseDTO) {
+        fun bind(purchaseDTO: PurchaseData) {
             Log.d("adapter", purchaseDTO.toString())
             menuName.text = purchaseDTO.purchaseMenu.menuName
             cost.text = purchaseDTO.purchaseMenu.cost.toString() + "원"

@@ -37,7 +37,7 @@ class SeatSelectionActivity : AppCompatActivity() {
 
         viewModel.seatListResponse.observe(this) {
             with(binding) {
-                for (i in 0..it.lastIndex) {
+                for (i in 0..it.singleSeatResponse.lastIndex) {
                     table.addView(createTable(i))
                 }
             }
@@ -72,7 +72,7 @@ class SeatSelectionActivity : AppCompatActivity() {
 
     private fun createTable(index: Int): View {
         val table = TextView(this)
-        val seatList = viewModel.seatListResponse.value?.get(index)!!
+        val seatList = viewModel.seatListResponse.value?.singleSeatResponse?.get(index)!!
         table.width = widthSize(seatList.customerNum)
         table.height = heightSize(seatList.customerNum)
         table.x = seatList.locationX
@@ -123,7 +123,7 @@ class SeatSelectionActivity : AppCompatActivity() {
     }
 
     fun onClick(seat: TextView, index: Int) {
-        val seatList = viewModel.seatListResponse.value?.get(index)!!
+        val seatList = viewModel.seatListResponse.value?.singleSeatResponse?.get(index)!!
         val drawableAConstantState =
             ContextCompat.getDrawable(this, R.drawable.seat_selection_background)?.constantState
 

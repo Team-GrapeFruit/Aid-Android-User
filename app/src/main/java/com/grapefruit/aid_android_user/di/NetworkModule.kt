@@ -41,7 +41,7 @@ object NetworkModule {
         return purchasePage.orderMenu(seatId, body)
     }
 
-    suspend fun quantityControl(purchaseId: Long, body: QuantityDTO): Response<Unit> {
+    suspend fun quantityControl(purchaseId: Long, body: QuantityData): Response<Unit> {
         return purchasePage.quantityControl(purchaseId, body)
     }
 
@@ -49,14 +49,14 @@ object NetworkModule {
         return purchasePage.deleteMenu(purchaseId)
     }
 
-    suspend fun purchaseList(seatId: Long): Response<List<PurchaseDTO>> {
+    suspend fun purchaseList(seatId: Long): Response<List<PurchaseData>> {
         return purchasePage.addMenuList(seatId)
     }
 
     suspend fun searchStore(storeId: Long): Response<ShopDetailData> {
         return storeApi.searchStore(storeId)
     }
-    suspend fun seatList(storeId: Long): Response<List<SeatData>> {
+    suspend fun seatList(storeId: Long): Response<SeatData> {
         return seatApi.seatList(storeId)
     }
 
