@@ -31,7 +31,6 @@ class ChatActivity : AppCompatActivity() {
 
         binding.storeName.text = seatId.toString() + "번"
 
-
         buildAdapter()
 
         binding.btnSend.setOnClickListener {
