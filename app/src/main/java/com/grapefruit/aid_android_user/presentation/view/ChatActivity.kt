@@ -20,11 +20,12 @@ class ChatActivity : AppCompatActivity() {
     private var isUser: String? = null
     val chatList: MutableList<ChatData> = mutableListOf()
     val isUserList: MutableList<String> = mutableListOf()
-    val storeId = intent.getLongExtra("storeId",0)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityChatBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        val storeId = intent.getLongExtra("storeId",0)
 
         buildAdapter()
 

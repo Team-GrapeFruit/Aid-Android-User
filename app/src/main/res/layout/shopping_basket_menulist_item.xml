@@ -162,8 +162,7 @@
         app:layout_constraintBottom_toBottomOf="@id/change_option_btn_guideline_bottom"
         android:background="@drawable/select_menu_option_background"
         android:text="옵션변경"
-        android:textSize="10sp"
-        android:gravity="center"/>
+        android:textSize="10sp"/>
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/change_option_btn_guideline_top"
@@ -288,12 +287,13 @@
         android:layout_height="0.1dp"
         android:orientation="horizontal"
         app:layout_constraintGuide_percent="0.65"/>
+
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/plus_btn_guideline_start"
         android:layout_width="match_parent"
         android:layout_height="0.1dp"
         android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.928"/>
+        app:layout_constraintGuide_percent="0.95" />
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/plus_btn_guideline_end"
         android:layout_width="match_parent"
