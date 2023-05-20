@@ -24,7 +24,7 @@ class MenuPageActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
 
-        viewModel.menuListRoad(1L)
+        viewModel.menuListRoad(2L)
 
         val context = this@MenuPageActivity
 
