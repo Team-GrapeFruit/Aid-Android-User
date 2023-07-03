@@ -21,9 +21,11 @@ class ChatAdapter(private val dataSet: MutableList<ChatData>, private val isUser
     inner class AiChatViewHolder(private val binding: ReciveMessageItemListBinding) :
         RecyclerView.ViewHolder(binding.root) {
         fun bind(data: ChatData) {
-            if(data.message == "0"){
+            if(data.message == "1"){
                 binding.reciveMsg.text = "메뉴 선택 화면으로 이동합니다."
-            }else {
+            }else if(data.message == "2"){
+                binding.reciveMsg.text = "이용해 주셔서 감사합니다."
+            }else{
                 binding.reciveMsg.text = data.message
             }
             binding.time.text = data.time

@@ -20,7 +20,8 @@ class ShopSelectActivity : AppCompatActivity() {
         binding = ActivityShopSelectBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        val storeId = intent.getLongExtra("storeId",0)
+        val sharedPreference = getSharedPreferences("sp1", MODE_PRIVATE)
+        val storeId = sharedPreference.getLong("storeId",0)
         Log.d("ShopAct_store",storeId.toString())
 
         if(storeId != null) {

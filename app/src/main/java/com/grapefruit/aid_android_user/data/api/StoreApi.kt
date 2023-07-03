@@ -9,4 +9,5 @@ import retrofit2.http.Path
 interface StoreApi {
     @GET("store/{storeId}")
     suspend fun searchStore(@Path("storeId") storeId: Long): Response<ShopDetailData>
+    suspend fun seasd()
 }
