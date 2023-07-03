@@ -16,11 +16,10 @@
             android:layout_width="50dp"
             android:layout_height="15dp"
             app:layout_constraintBottom_toBottomOf="@id/send_msg"
-            app:layout_constraintStart_toStartOf="@id/time_guideline_start"
-            app:layout_constraintEnd_toEndOf="@id/time_guideline_end"
+            app:layout_constraintEnd_toStartOf="@id/send_msg"
             android:layout_marginTop="55dp"
             android:text="오후 8:00"
-            android:textSize="11sp" />
+            android:textSize="11sp"/>
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/time_guideline_start"

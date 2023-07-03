@@ -22,7 +22,6 @@ import com.grapefruit.aid_android_user.presentation.viewmodel.QrcodeViewModel
 class QrScanActivity : AppCompatActivity() {
     private lateinit var codeScanner: CodeScanner
     private lateinit var binding: ActivityQrscanBinding
-    private val viewModel: QrcodeViewModel by viewModels()
     private lateinit var sharedPreferences: SharedPreferences
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -58,10 +57,13 @@ class QrScanActivity : AppCompatActivity() {
 
             decodeCallback = DecodeCallback {
                 runOnUiThread {
+                    val sharedPreference = getSharedPreferences("sp1", MODE_PRIVATE)
+                    val editor: SharedPreferences.Editor = sharedPreference.edit()
                     val barcodeValue = it.text
                     Log.d("testt",it.toString())
+                    editor.putLong("storeId",barcodeValue.toLong())
+                    editor.commit()
                     val intent = Intent(this@QrScanActivity,ShopSelectActivity::class.java)
-                    intent.putExtra("storeId",barcodeValue.toLong())
                     startActivity(intent)
                 }
             }

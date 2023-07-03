@@ -33,6 +33,7 @@ class ChatActivity : AppCompatActivity() {
 
 
         buildAdapter()
+        viewModel.firestMessage()
 
         binding.btnSend.setOnClickListener {
             putMessage()
@@ -52,11 +53,13 @@ class ChatActivity : AppCompatActivity() {
                 Log.d("Activity_isUser", isUserList.toString())
                 adapter.notifyDataSetChanged()
                 binding.chatView.scrollToPosition(adapter.itemCount-1)
-                if(it.message == "0"){
-                    val intent: Intent = Intent(this@ChatActivity, MenuPageActivity::class.java)
+                if(it.message == "1"){
+                    val intent = Intent(this@ChatActivity, MenuPageActivity::class.java)
                     intent.putExtra("storeId", storeId)
                     startActivity(intent)
                     finish()
+                }else if(it.message == "2"){
+                    finishAffinity()
                 }
 
             }
