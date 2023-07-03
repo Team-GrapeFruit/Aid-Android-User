@@ -1,6 +1,7 @@
 package com.grapefruit.aid_android_user.presentation.view
 
 import android.content.Intent
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.util.Log
 import androidx.activity.viewModels
@@ -10,27 +11,24 @@ import com.grapefruit.aid_android_user.databinding.ActivityMenuPageBinding
 import com.grapefruit.aid_android_user.presentation.view.adapter.CategoryMenuAdapter
 import com.grapefruit.aid_android_user.presentation.view.adapter.MenuAdapter
 import com.grapefruit.aid_android_user.presentation.viewmodel.MenuPageViewModel
+import com.grapefruit.aid_android_user.presentation.viewmodel.StoreIdViewModel
 
 class MenuPageActivity : AppCompatActivity() {
 
     lateinit var binding: ActivityMenuPageBinding
     val viewModel by viewModels<MenuPageViewModel>()
-    var storeId = 0L
+    val storeViewModel = StoreIdViewModel()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         binding = ActivityMenuPageBinding.inflate(layoutInflater)
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
 
-        storeId = intent.getLongExtra("storeId",0)
-        Log.d("storeId", storeId.toString())
+        viewModel.menuListRoad(2L)
+
         val context = this@MenuPageActivity
 
-        viewModel.menuListRoad(storeId!!.toLong())
-
         viewModel.menuListResponse.observe(this) {
-            Log.d("minseok", "observe")
-            Log.d("minseok", it.toString())
             val menuAdapter = MenuAdapter(it)
             binding.menuList.layoutManager = LinearLayoutManager(this)
             binding.menuList.adapter = menuAdapter

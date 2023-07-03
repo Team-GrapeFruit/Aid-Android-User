@@ -4,6 +4,7 @@ import android.Manifest
 import android.content.Intent
 import android.content.SharedPreferences
 import android.content.pm.PackageManager
+import android.hardware.Camera
 import android.os.Bundle
 import android.util.Log
 import androidx.activity.viewModels
@@ -17,12 +18,14 @@ import com.budiyev.android.codescanner.ErrorCallback
 import com.budiyev.android.codescanner.ScanMode
 import com.grapefruit.aid_android_user.databinding.ActivityQrscanBinding
 import com.grapefruit.aid_android_user.presentation.viewmodel.QrcodeViewModel
+import com.grapefruit.aid_android_user.presentation.viewmodel.StoreIdViewModel
 
 
 class QrScanActivity : AppCompatActivity() {
     private lateinit var codeScanner: CodeScanner
     private lateinit var binding: ActivityQrscanBinding
     private lateinit var sharedPreferences: SharedPreferences
+    val storeViewModel = StoreIdViewModel()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -30,6 +33,7 @@ class QrScanActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         sharedPreferences = getSharedPreferences("MyPreferences", MODE_PRIVATE)
+        val data = sharedPreferences.getLong("storeId",0)
 
         setupPermissions()
         setupCodeScanner()
@@ -60,6 +64,7 @@ class QrScanActivity : AppCompatActivity() {
                     val sharedPreference = getSharedPreferences("sp1", MODE_PRIVATE)
                     val editor: SharedPreferences.Editor = sharedPreference.edit()
                     val barcodeValue = it.text
+                    storeViewModel.storeIdRoad(barcodeValue.toLong())
                     Log.d("testt",it.toString())
                     editor.putLong("storeId",barcodeValue.toLong())
                     editor.commit()
