@@ -50,7 +50,7 @@ class CategoryMenuAdapter(val itemList: CategoryData) :
             menuName.text = menuData.menuName
             cost.text = menuData.cost.toString() + "원"
             Glide.with(menuImg)
-                .load(menuData.menuImgURL)
+                .load(menuData.menuImgUrl)
                 .into(binding.menuImage)
         }
     }

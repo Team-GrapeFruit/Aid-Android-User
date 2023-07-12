@@ -6,7 +6,7 @@ data class MenuData(
     val menuId: Long,
     val menuName: String,
     val cost: Long,
-    val menuImgURL: String?,
+    val menuImgUrl: String?
 )
 
 data class CheckMenuData(
