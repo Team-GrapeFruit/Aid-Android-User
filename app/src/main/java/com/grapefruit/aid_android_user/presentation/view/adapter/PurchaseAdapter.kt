@@ -86,7 +86,7 @@ class PurchaseAdapter(
             cost.text = purchaseDTO.purchaseMenu.cost.toString() + "원"
             quantity.text = purchaseDTO.quantity.toString()
             Glide.with(menuImg)
-                .load(purchaseDTO.purchaseMenu.menuImgURL)
+                .load(purchaseDTO.purchaseMenu.menuImgUrl)
                 .into(binding.menuImage)
         }
     }

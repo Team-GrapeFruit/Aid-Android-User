@@ -7,6 +7,7 @@ import android.util.Log
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.bumptech.glide.Glide
 import com.grapefruit.aid_android_user.databinding.ActivityMenuPageBinding
 import com.grapefruit.aid_android_user.presentation.view.adapter.CategoryMenuAdapter
 import com.grapefruit.aid_android_user.presentation.view.adapter.MenuAdapter
@@ -29,9 +30,10 @@ class MenuPageActivity : AppCompatActivity() {
         val context = this@MenuPageActivity
 
         viewModel.menuListResponse.observe(this) {
-            val menuAdapter = MenuAdapter(it)
+            val menuAdapter = MenuAdapter(it, Glide.with(this@MenuPageActivity))
             binding.menuList.layoutManager = LinearLayoutManager(this)
             binding.menuList.adapter = menuAdapter
+
         }
 
         with(binding) {
@@ -45,7 +47,7 @@ class MenuPageActivity : AppCompatActivity() {
             }
             menuCategory1.setOnClickListener {
                 viewModel.menuListResponse.observe(context) {
-                    val menuAdapter = MenuAdapter(it)
+                    val menuAdapter = MenuAdapter(it, Glide.with(this@MenuPageActivity))
                     menuList.layoutManager = LinearLayoutManager(this@MenuPageActivity)
                     menuList.adapter = menuAdapter
                 }
