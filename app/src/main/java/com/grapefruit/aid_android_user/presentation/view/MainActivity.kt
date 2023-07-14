@@ -17,7 +17,7 @@ class MainActivity : AppCompatActivity() {
         // 일정 시간 지연 이후 실행하기 위한 코드
         Handler(Looper.getMainLooper()).postDelayed({
 
-            val intent: Intent = Intent(this@MainActivity, QrScanActivity::class.java)
+            val intent: Intent = Intent(this@MainActivity, ChatActivity::class.java)
             startActivity(intent)
             finish()
 
