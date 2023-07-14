@@ -17,7 +17,7 @@ class MenuDetailPageActivity : AppCompatActivity() {
     private var menuName = ""
     private var cost = 0L
     private var imgUrl = ""
-    var menuId = 0L
+    private var menuId = 0L
 
     override fun onCreate(savedInstanceState: Bundle?) {
         binding = ActivityMenuDetailPageBinding.inflate(layoutInflater)
@@ -32,12 +32,12 @@ class MenuDetailPageActivity : AppCompatActivity() {
             viewModel.menuDetailResponse.observe(this@MenuDetailPageActivity) {
                 this@MenuDetailPageActivity.menuName = it.menuName
                 this@MenuDetailPageActivity.cost = it.cost
-                this@MenuDetailPageActivity.imgUrl = it.menuImgURL ?: ""
+                this@MenuDetailPageActivity.imgUrl = it.menuImgUrl ?: ""
                 menuName.text = it.menuName
                 menuDescription.text = it.description
                 cost.text = it.cost.toString() + "원"
                 Glide.with(menuImage)
-                    .load(it.menuImgURL)
+                    .load(it.menuImgUrl)
                     .into(menuImage)
             }
             changeOptionBtn.setOnClickListener {
@@ -46,7 +46,7 @@ class MenuDetailPageActivity : AppCompatActivity() {
                 startActivity(intent)
             }
             cartBtn.setOnClickListener {
-                viewModel.orderMenuToPurchaseRoad(1L, 1L, 1L)
+                viewModel.orderMenuToPurchaseRoad(1L, menuId, 1L)
             }
             cartImage.setOnClickListener {
                 val intent =

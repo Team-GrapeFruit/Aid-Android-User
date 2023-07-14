@@ -4,5 +4,5 @@ data class MenuDetailData(
     val menuName: String,
     val description: String,
     val cost: Long,
-    val menuImgURL: String?
+    val menuImgUrl: String?
 )
